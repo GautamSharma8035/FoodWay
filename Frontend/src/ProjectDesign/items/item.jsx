@@ -70,7 +70,7 @@ function Item({isModel,setIsModel}) {
                 ))}
             </div>
             {isModel === "true" && (
-    <div className="modal show d-block" style={{ backgroundColor: "rgba(0,0,0,0.80)" }} tabIndex="-1">
+    <div className="modal show d-block" style={{ backgroundColor: "rgba(0,0,0,0.50)" }} tabIndex="-1">
         <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content text-center" style={{
                 background: "linear-gradient(135deg, #6a0572, #ff007f)",
