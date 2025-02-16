@@ -1,20 +1,18 @@
-import React from 'react';
-import './App.css'
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Nav from './ProjectDesign/Nav/NavBar';
-import Body from './ProjectDesign/body/body';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Body from "./ProjectDesign/body/body";
+import SignUp from "./ProjectDesign/SignUp Page/SignUp";
 
 function App() {
-
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path='/body' element={<Body/>}></Route>
-        </Routes>
-      </Router>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Body />} /> 
+        <Route path="/SignUp" element={<SignUp/>}/>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

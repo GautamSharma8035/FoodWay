@@ -7,7 +7,7 @@ import { IoLogoGooglePlaystore } from "react-icons/io5";
 function Footer({isModel,setIsModel}){
     return(
         <>
-           <div className=" bg-dark d-flex">
+           <div className=" d-flex" style={{backgroundColor:"black"}}>
             <div className="container p-5">
                 <h1 className="text-light">FoodWay</h1>
                 <p className="text-light">"Welcome to FoodWay! We serve fresh, tasty food with care. Come and enjoy a delicious meal with us!"</p>
