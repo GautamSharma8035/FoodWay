@@ -1,9 +1,48 @@
 import React, { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignUp.css';
 import { FaUserCircle, FaPhoneAlt, FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine, RiLockPasswordFill } from "react-icons/ri";
 import axios from "axios";
+
+function LoginSignUp(){
+    const [change,setChange] = useState("SignUp");
+    const switchChange = (change) =>{
+        switch(change){
+            case "Login":
+                return <Login/>
+            case "SignUp":
+                return <SignUp/>
+        }
+    }
+    return(
+        <>
+      <div className="d-flex justify-content-center w-100 p-3" style={{ backgroundColor: "white" }}>
+    <table className="table table-bordered  border-table text-center w-50" style={{ backgroundColor: "white" }}>
+        <thead>
+            <tr>
+                <th 
+                    className={`tab ${change === "Login" ? "active tab bg-purple text-white" : "bg-light"}`} 
+                    onClick={() => setChange("Login")}
+                >
+                    Login
+                </th>
+                <th 
+                    className={`tab ${change === "SignUp" ? " active tab bg-purple text-white" : "bg-light"}`} 
+                    onClick={() => setChange("SignUp")}
+                >
+                    SignUp
+                </th>
+            </tr>
+        </thead>
+    </table> 
+</div>
+        {switchChange(change)}
+        </>
+    )
+}
+export {LoginSignUp}
 
 function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
@@ -88,11 +127,11 @@ function SignUp() {
     
 
     return (
-        <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style={{ backgroundColor: "black" }}>
-            <div className="container d-flex w-75 p-5 rounded " >
-                <div className="d-flex flex-column justify-content-center w-50 p-5 text-white" style={{ backgroundColor: "black" }}>
+        <div className="container-fluid mt-3 d-flex justify-content-center align-items-center" style={{ backgroundColor: "white" }}>
+            <div className="container d-flex w-75 rounded " >
+                <div className="d-flex flex-column justify-content-center w-50 p-5 text-white border border-2 rounded" style={{ backgroundColor: "white" }}>
                     <div className="d-flex justify-content-center w-100">
-                        <h1 className="form-label mb-5">Registration</h1>
+                        <h1 className="form-label mb-5 text-dark">Registration</h1>
                     </div>
                     <form >
                     <div className="position-relative w-100 mb-3">
@@ -127,7 +166,7 @@ function SignUp() {
                     </div>
 
                     <div className="d-flex justify-content-center w-100">
-                        <button type="button" className="btn text-light w-25 mt-4" style={{ backgroundColor: "rgba(128, 0, 128, 1)" }} onClick={handleSubmit} >Get Code</button>
+                        <button type="button" className="btn text-light w-25 mt-4" style={{backgroundColor:"rgb(81, 5, 163)"}} onClick={handleSubmit} >Get Code</button>
                     </div>
                     </form>
                 </div>
@@ -207,4 +246,36 @@ function SignUp() {
     );
 }
 
-export default SignUp;
+export {SignUp}
+
+function Login() {
+    return (
+        <div className="container-fluid mt-3 d-flex justify-content-center align-items-center" style={{ backgroundColor: "white" }}>
+            <div className="container d-flex w-75 rounded">
+                <div className="d-flex flex-column justify-content-center w-50 p-5 text-dark">
+                    <div className="d-flex justify-content-center w-100">
+                        <h1 className="form-label mb-5">Login</h1>
+                    </div>
+                    <form>
+                        <div className="position-relative w-100 mb-3">
+                            <MdEmail className="position-absolute text-secondary" style={{ top: "50%", left: "10px", transform: "translateY(-50%)", fontSize: "20px" }} />
+                            <input type="text" className="form-control rounded-pill ps-5 text-dark" placeholder="Enter your Mobile Number" required />
+                        </div>
+
+                        <div className="position-relative w-100 mb-3">
+                            <RiLockPasswordLine className="position-absolute text-secondary" style={{ top: "50%", left: "10px", transform: "translateY(-50%)", fontSize: "20px" }} />
+                            <input type="password" className="form-control rounded-pill ps-5 text-dark" placeholder="Password" required />
+                        </div>
+
+                        <div className="d-flex justify-content-center w-100">
+                            <button type="submit" className="btn text-light w-25 mt-4" style={{ backgroundColor: "rgba(128, 0, 128, 1)" }}>Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+
+export {Login}

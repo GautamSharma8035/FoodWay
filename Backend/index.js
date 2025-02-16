@@ -6,7 +6,7 @@ const connectDB = require("./Database/db");
 const app = express();
 const PORT = 5000;
 
-// ✅ CORS Configuration  
+ 
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 connectDB();

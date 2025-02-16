@@ -8,7 +8,7 @@ function Nav() {
   const Navigate=useNavigate();
 
   const redirect = ()=>{
-    Navigate('/SignUp')
+    Navigate('LoginSignUp')
   }
   return (
     <>

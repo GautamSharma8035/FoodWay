@@ -19,10 +19,10 @@ exports.registerUser = async (req, res) => {
             return res.status(400).json({ message: "User already exists with this email!" });
         }
 
-        // 🟢 Password Hashing
+       
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // 🟢 Save new user
+       
         const newUser = new User({
             fullName,
             mobile,

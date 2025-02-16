@@ -1,0 +1,10 @@
+.border-table {
+    border-radius: 10px;
+    overflow: hidden; /* Rounded corners ke liye zaroori hai */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.bg-purple {
+    background-color: rgb(81, 5, 163) !important;
+    color: white !important;
+}
