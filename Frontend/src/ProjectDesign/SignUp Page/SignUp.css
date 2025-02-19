@@ -8,3 +8,30 @@
     background-color: rgb(81, 5, 163) !important;
     color: white !important;
 }
+
+@keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .form-control:focus {
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(81, 5, 163, 0.2);
+  }
+  
+  .btn {
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(81, 5, 163, 0.3);
+  }

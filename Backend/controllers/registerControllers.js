@@ -13,16 +13,22 @@ exports.registerUser = async (req, res) => {
             return res.status(400).json({ message: "Passwords do not match" });
         }
 
-        // 🟢 Check if user already exists
+
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: "User already exists with this email!" });
         }
+        console.log(existingUser)
 
-       
+        const existingMobile = await User.findOne({ mobile: mobileNumber });
+        if (existingMobile) {
+            return res.status(400).json({ message: "Mobile Number already exists" });
+        }
+        
+
         const hashedPassword = await bcrypt.hash(password, 10);
 
-       
+
         const newUser = new User({
             fullName,
             mobile,
