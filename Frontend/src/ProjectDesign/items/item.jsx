@@ -33,13 +33,12 @@ function Item({ isModel, setIsModel }) {
                 className="p-5"
                 style={{
                     overflow: 'hidden',
-                    // backgroundColor: 'rgba(0,0,0,0.10)',
-                    boxShadow: 'inset 0px 0px 50px rgba(0, 0, 0, 0.02)', // Apply inset shadow here
+                    boxShadow: 'inset 0px 0px 50px rgba(0, 0, 0, 0.02)', 
                 }}
             >
                 <div className="row justify-content-center mb-5">
                     <div className="card-container">
-                        {/* Iterate over all items and display them */}
+                       
                         {items.map((food) => (
                             <div key={food.id} className="card-item">
                                 <div
@@ -50,8 +49,8 @@ function Item({ isModel, setIsModel }) {
                                         borderRadius: '15px',
                                         overflow: 'hidden',
                                         marginRight: '15px',
-                                        width: '100%', // Ensure it takes full width available
-                                        maxWidth: '450px', // Controls card width
+                                        width: '100%',
+                                        maxWidth: '450px', 
 
                                         backgroundColor: "rgba(0,0,0,0.1)"
                                     }}
@@ -61,8 +60,8 @@ function Item({ isModel, setIsModel }) {
                                         className="card-img-left"
                                         alt={food.name}
                                         style={{
-                                            width: '70px', // Image size fixed
-                                            height: '70px', // Image size fixed
+                                            width: '70px', 
+                                            height: '70px', 
                                             objectFit: 'cover',
                                             borderRadius: '15px',
                                         }}
@@ -81,10 +80,10 @@ function Item({ isModel, setIsModel }) {
                                         <h5
                                             className="card-title"
                                             style={{
-                                                fontSize: '25px', // Adjust font size
+                                                fontSize: '25px', 
                                                 fontWeight: 'bold',
-                                                margin: 0, // Remove default margin
-                                                wordBreak: 'break-word', // Ensure long words break if needed
+                                                margin: 0, 
+                                                wordBreak: 'break-word', 
                                             }}
                                         >
                                             {food.name}
@@ -97,7 +96,7 @@ function Item({ isModel, setIsModel }) {
                 </div>
                 <div className="row justify-content-center mb-5">
                     <div className="card-container-veg">
-                        {/* Iterate over all items and display them */}
+                       
                         {veg.map((food) => (
                             <div key={food.id} className="card-item">
                                 <div
@@ -108,8 +107,8 @@ function Item({ isModel, setIsModel }) {
                                         borderRadius: '15px',
                                         overflow: 'hidden',
                                         marginRight: '15px',
-                                        width: '100%', // Ensure it takes full width available
-                                        maxWidth: '450px', // Controls card width
+                                        width: '100%', 
+                                        maxWidth: '450px', 
 
                                         backgroundColor: "rgba(0,0,0,0.1)"
                                     }}
@@ -119,8 +118,8 @@ function Item({ isModel, setIsModel }) {
                                         className="card-img-left"
                                         alt={food.name}
                                         style={{
-                                            width: '70px', // Image size fixed
-                                            height: '70px', // Image size fixed
+                                            width: '70px', 
+                                            height: '70px', 
                                             objectFit: 'cover',
                                             borderRadius: '15px',
                                         }}
@@ -139,10 +138,10 @@ function Item({ isModel, setIsModel }) {
                                         <h5
                                             className="card-title"
                                             style={{
-                                                fontSize: '25px', // Adjust font size
+                                                fontSize: '25px', 
                                                 fontWeight: 'bold',
-                                                margin: 0, // Remove default margin
-                                                wordBreak: 'break-word', // Ensure long words break if needed
+                                                margin: 0, 
+                                                wordBreak: 'break-word', 
                                             }}
                                         >
                                             {food.name}
@@ -155,7 +154,7 @@ function Item({ isModel, setIsModel }) {
                 </div>
                 <div className="row justify-content-center">
                     <div className="card-container-nonveg">
-                        {/* Iterate over all items and display them */}
+                     
                         {nonveg.map((food) => (
                             <div key={food.id} className="card-item">
                                 <div
@@ -166,8 +165,8 @@ function Item({ isModel, setIsModel }) {
                                         borderRadius: '15px',
                                         overflow: 'hidden',
                                         marginRight: '15px',
-                                        width: '100%', // Ensure it takes full width available
-                                        maxWidth: '450px', // Controls card width
+                                        width: '100%', 
+                                        maxWidth: '450px', 
                                         backgroundColor: "rgba(0,0,0,0.1)"
                                     }}
                                 >
@@ -176,8 +175,8 @@ function Item({ isModel, setIsModel }) {
                                         className="card-img-left"
                                         alt={food.name}
                                         style={{
-                                            width: '70px', // Image size fixed
-                                            height: '70px', // Image size fixed
+                                            width: '70px', 
+                                            height: '70px', 
                                             objectFit: 'cover',
                                             borderRadius: '15px',
                                         }}
@@ -196,10 +195,10 @@ function Item({ isModel, setIsModel }) {
                                         <h5
                                             className="card-title"
                                             style={{
-                                                fontSize: '25px', // Adjust font size
+                                                fontSize: '25px',
                                                 fontWeight: 'bold',
-                                                margin: 0, // Remove default margin
-                                                wordBreak: 'break-word', // Ensure long words break if needed
+                                                margin: 0, 
+                                                wordBreak: 'break-word',
                                             }}
                                         >
                                             {food.name}

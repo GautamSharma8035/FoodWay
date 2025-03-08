@@ -22,7 +22,7 @@ function Body() {
               }
             });
           },
-          { threshold: 0.3 } // Jab 30% image visible ho tab animation trigger hoga
+          { threshold: 0.3 } 
         );
     
         images.forEach((img) => observer.observe(img));

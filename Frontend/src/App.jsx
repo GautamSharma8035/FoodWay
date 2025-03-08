@@ -4,12 +4,14 @@ import "./App.css";
 import Body from "./ProjectDesign/body/body";
 import Dashboard from "./ProjectDesign/Dashboard/dashboard";
 
+
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Body />} /> 
         <Route path="/dashboard" element={<Dashboard/>}/>
+       
       </Routes>
     </Router>
   );

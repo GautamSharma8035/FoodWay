@@ -1,45 +1,45 @@
-/* Keyframes for left to right and right to left movement */
+
 @keyframes move-left-right {
     0% {
-        transform: translateX(50%); /* Start at the center, off-screen on the right */
+        transform: translateX(50%); 
     }
     25% {
-        transform: translateX(0); /* Move to the center */
+        transform: translateX(0); 
     }
     50% {
-        transform: translateX(-50%); /* Move to the left, halfway */
+        transform: translateX(-50%); 
     }
     75% {
-        transform: translateX(0); /* Back to the center */
+        transform: translateX(0); 
     }
     100% {
-        transform: translateX(50%); /* Return to the center and move to the right */
+        transform: translateX(50%); 
     }
 }
 
 @keyframes move-right-left {
     0% {
-        transform: translateX(-50%); /* Start at the center, off-screen on the left */
+        transform: translateX(-50%); 
     }
     25% {
-        transform: translateX(0); /* Move to the center */
+        transform: translateX(0); 
     }
     50% {
-        transform: translateX(50%); /* Move to the left, halfway */
+        transform: translateX(50%); 
     }
     75% {
-        transform: translateX(0); /* Back to the center */
+        transform: translateX(0); 
     }
     100% {
-        transform: translateX(-50%); /* Return to the center and move to the right */
+        transform: translateX(-50%); 
     }
 }
 
-/* Wrapper for the cards */
+
 .card-container, .card-container-nonveg, .card-container-veg {
     display: flex;
-    flex-wrap: nowrap; /* Keep all cards in one row */
-    overflow: hidden; /* Prevent horizontal scrolling */
+    flex-wrap: nowrap; 
+    overflow: hidden; 
     width: 100%;
 }
 
@@ -55,16 +55,16 @@
     animation: move-left-right 60s linear infinite;
 }
 
-/* Card Styling */
+
 .card-item {
     flex-shrink: 0;
-    width: 20%; /* Width adjusted for card size */
+    width: 20%; 
     display: flex;
     justify-content: center;
   
 }
 
-/* Card Styling */
+
 .card {
     border-radius: 15px;
     overflow: hidden;
@@ -74,7 +74,7 @@
     
 }
 
-/* Card Image */
+
 .card-img-left {
     width: 100px;
     height: 100px;
@@ -82,16 +82,16 @@
     border-radius: 15px;
 }
 
-/* Card Body */
+
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 15px; /* Adjust padding */
-    text-align: left; /* Ensure text is left-aligned */
+    padding-left: 15px; 
+    text-align: left; 
 }
 
-/* Card Title */
+
 .card-title {
     font-size: 20px;
     font-weight: bold;

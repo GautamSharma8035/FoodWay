@@ -7,7 +7,7 @@ import { IoLogoGooglePlaystore } from "react-icons/io5";
 function Footer({isModel,setIsModel}){
     return(
         <>
-           <div className=" d-flex" style={{backgroundColor:"black"}}>
+           <div className=" container-fluid d-flex" style={{background: "rgb(81, 5, 163)"}}>
             <div className="container p-5">
                 <h1 className="text-light">FoodWay</h1>
                 <p className="text-light">"Welcome to FoodWay! We serve fresh, tasty food with care. Come and enjoy a delicious meal with us!"</p>
@@ -23,16 +23,16 @@ function Footer({isModel,setIsModel}){
                 <details className="text-white">
                     <summary> Mobile Number </summary>
                     <div style={{marginLeft:"40px"}}>
-                    <a href="tel:6260191430">+91 6260191430</a><br/>
-                    <a href="tel:7610183808">+91 7610183808</a>
+                    <a href="tel:6260191430" className="text-light">+91 6260191430</a><br/>
+                    <a href="tel:7610183808" className="text-light">+91 7610183808</a>
                     
                     </div>
                 </details>
                 <details className="text-white">
                     <summary>Email</summary>
                     <div style={{marginLeft:"40px"}}>
-                    <a href="mailto:gautamsharma8035@gmail.com">gautamsharma8035@gmail.com</a><br/>
-                    <a href="mailto:anirudhsharmaofficial9@gmail.com">anirudhsharmaofficial9@gmail.com</a>
+                    <a href="mailto:gautamsharma8035@gmail.com" className="text-light">gautamsharma8035@gmail.com</a><br/>
+                    <a href="mailto:anirudhsharmaofficial9@gmail.com" className="text-light">anirudhsharmaofficial9@gmail.com</a>
                     </div>
                 </details>
                 <details className="text-white">

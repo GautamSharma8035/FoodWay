@@ -1,0 +1,145 @@
+/* Basic styling for the sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    color: grey;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar h2 {
+    margin-top: 0;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .shadow-css-foodway{
+      color: rgb(81, 5, 163);
+      font-weight: bolder;
+    }
+  
+  .sidebar ul li {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 0.25rem; /* Bootstrap's rounded effect */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .sidebar ul li:hover {
+    background-color: white;
+    color: rgb(81, 5, 163);
+    font-weight: bolder;
+  }
+
+  /* sidenav.css */
+.sidenav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.toggle-btn {
+  padding: 15px;
+  position: fixed;
+  z-index: 1001;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 70px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease-in-out;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar h2 {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar li:hover {
+  background-color: white;
+}
+
+.sidebar details {
+  width: 100%;
+}
+
+.sidebar details summary {
+  padding: 15px 20px;
+  list-style: none;
+}
+
+.sidebar details ul {
+  padding-left: 20px;
+}
+
+.sidebar details ul li {
+  padding: 10px 20px;
+}
+
+
+.sidebar:not(.open) h2,
+.sidebar:not(.open) li span,
+.sidebar:not(.open) details ul {
+  display: none;
+}
+
+.sidebar li {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.sidebar li.active {
+  background-color: rgba(81, 5, 163, 0.1);
+  border-left: 4px solid rgb(81, 5, 163);
+  padding-left: 16px;
+}
+
+.sidebar details summary.active {
+  background-color: rgba(81, 5, 163, 0.1);
+  border-left: 4px solid rgb(81, 5, 163);
+  padding-left: 16px;
+}
+
+.sidebar li:hover {
+  background-color: rgba(81, 5, 163, 0.05);
+}
+
+
+.sidebar li.active:hover {
+  background-color: rgba(81, 5, 163, 0.1);
+}
+
+
+  

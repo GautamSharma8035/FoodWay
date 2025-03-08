@@ -1,0 +1,83 @@
+
+
+.hover-effect:hover {
+    color: blue;
+    border-bottom: 2px solid blue;  
+}
+
+
+.hover-effect {
+    position: relative;
+    color: black;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    
+}
+
+.hover-effect::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: blue;
+    transition: width 0.3s ease;
+}
+
+.hover-effect:hover::after {
+    width: 100%;
+}
+
+.icon-container {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .icon-container:hover {
+    background-color: rgba(0, 0, 255, 0.1);
+  }
+  
+  .btn-font {
+    font-size: 16px;
+    min-width: fit-content; 
+    max-width: calc(100% - 80px); 
+    color: white;
+    height: 50px;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #6366F1, #8B5CF6);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.user-image {
+    position: relative;
+    right: 15px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    flex-shrink: 0;
+    z-index: 1; 
+    
+}
+.bg-light-css{
+    background-color: white;
+}
+
+
+.btn-font:hover {
+    background-color: rgb(95, 6, 190);
+}
+
+
+.btn-font strong {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+}
