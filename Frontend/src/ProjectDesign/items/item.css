@@ -1,0 +1,100 @@
+/* Keyframes for left to right and right to left movement */
+@keyframes move-left-right {
+    0% {
+        transform: translateX(50%); /* Start at the center, off-screen on the right */
+    }
+    25% {
+        transform: translateX(0); /* Move to the center */
+    }
+    50% {
+        transform: translateX(-50%); /* Move to the left, halfway */
+    }
+    75% {
+        transform: translateX(0); /* Back to the center */
+    }
+    100% {
+        transform: translateX(50%); /* Return to the center and move to the right */
+    }
+}
+
+@keyframes move-right-left {
+    0% {
+        transform: translateX(-50%); /* Start at the center, off-screen on the left */
+    }
+    25% {
+        transform: translateX(0); /* Move to the center */
+    }
+    50% {
+        transform: translateX(50%); /* Move to the left, halfway */
+    }
+    75% {
+        transform: translateX(0); /* Back to the center */
+    }
+    100% {
+        transform: translateX(-50%); /* Return to the center and move to the right */
+    }
+}
+
+/* Wrapper for the cards */
+.card-container, .card-container-nonveg, .card-container-veg {
+    display: flex;
+    flex-wrap: nowrap; /* Keep all cards in one row */
+    overflow: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
+}
+
+.card-container {
+    animation: move-left-right 60s linear infinite;
+}
+
+.card-container-veg {
+    animation: move-right-left 60s linear infinite;
+}
+
+.card-container-nonveg {
+    animation: move-left-right 60s linear infinite;
+}
+
+/* Card Styling */
+.card-item {
+    flex-shrink: 0;
+    width: 20%; /* Width adjusted for card size */
+    display: flex;
+    justify-content: center;
+  
+}
+
+/* Card Styling */
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
+}
+
+/* Card Image */
+.card-img-left {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Card Body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px; /* Adjust padding */
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+/* Card Title */
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    word-wrap: break-word;
+}

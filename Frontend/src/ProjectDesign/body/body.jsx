@@ -34,7 +34,7 @@ function Body() {
   return (
     <>
     <Nav/>
-    <div className="container d-flex mt-5 align-items-center justify-content-between w-75">
+    <div className="container d-flex mt-5 align-items-center justify-content-between w-75" >
       <div className="container w-50 text-animation">
         <h1>
           Fastest <span style={{color:"rgb(81, 5, 163)"}}>Delivery</span> & <br /> Easy{" "}
