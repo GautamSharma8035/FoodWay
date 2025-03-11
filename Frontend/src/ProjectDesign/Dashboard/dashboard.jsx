@@ -170,9 +170,9 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} `}>
+        {/* <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} `}>
         <Footer />
-        </div>
+        </div> */}
       </div>
       
 
