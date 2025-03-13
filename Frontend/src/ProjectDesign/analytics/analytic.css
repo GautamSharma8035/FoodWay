@@ -1,0 +1,142 @@
+.analytics-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  .analytics-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .sales-summary {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+  }
+  
+  .sales-item {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .bg-light {
+    margin-bottom: 15px;
+  }
+  
+  .btn-selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-unselected {
+    background-color: lightgray;
+    color: black;
+  }
+  
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px 0;
+  }
+  
+  .timeline-step {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    position: relative;
+    padding: 10px 0;
+  }
+  
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: lightgray;
+    position: relative;
+    flex-shrink: 0;
+    margin-right: 15px;
+  }
+  
+  .completed {
+    background-color: blue;
+  }
+  
+  .pending {
+    background-color: lightgray;
+  }
+  
+  .timeline-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 40px;
+    background-color: lightgray;
+    top: 30px;
+    left: 10px;
+    z-index: -1;
+  }
+  
+  .timeline-step.completed:not(:last-child)::after {
+    background-color: blue;
+  }
+  
+  .timeline-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .timeline-status {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .timeline-date {
+    font-size: 12px;
+    color: gray;
+  }
+
+  
+  .dashboard-wrapper {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden; 
+  }
+  
+  .main-content {
+    position: relative;
+    margin-left: 70px; 
+    transition: margin-left 0.3s ease-in-out;
+    width: calc(100% - 70px); 
+  }
+  
+  .main-content.content-shifted {
+    margin-left: 250px;
+    width: calc(100% - 250px); 
+  }
+  
+ 
+  .sidenav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
+    overflow-x: hidden; 
+  }
+  

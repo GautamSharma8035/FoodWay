@@ -3,15 +3,24 @@ import { IoReorderThreeOutline } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
 import './sidenav.css'
 import { RxCross2 } from "react-icons/rx";
+import { useNavigate } from 'react-router-dom';
 
 function Sidenav({ isOpen, setIsOpen }) {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
     const [activeItem, setActiveItem] = useState("dashboard");
     const sidebarRef = useRef(null);
+    const order = useNavigate();
 
     const toggleSubmenu = () => {
         setIsSubmenuOpen(prevState => !prevState);
     };
+
+    const ordernavigate =()=>{
+        order('/orderpage')
+    }
+    const analyticnavigate = ()=>{
+        order('/analytics')
+    }
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -60,7 +69,7 @@ function Sidenav({ isOpen, setIsOpen }) {
                             </li>
                             <li
                                 className={activeItem === 'orders' ? 'active' : ''}
-                                onClick={() => handleItemClick('orders')}
+                                onClick={() => {handleItemClick('orders'),ordernavigate()}}
                             >
                                 Orders
                             </li>
@@ -116,7 +125,7 @@ function Sidenav({ isOpen, setIsOpen }) {
                             </li>
                             <li
                                 className={activeItem === 'analytics' ? 'active' : ''}
-                                onClick={() => handleItemClick('analytics')}
+                                onClick={() => {handleItemClick('analytics'), analyticnavigate()}}
                             >
                                 Analytics
                             </li>
