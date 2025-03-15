@@ -5,7 +5,9 @@ import Body from "./ProjectDesign/body/body";
 import Dashboard from "./ProjectDesign/Dashboard/dashboard";
 import OrderPage from "./ProjectDesign/orderpage/order";
 import OrderTracking from "./ProjectDesign/orderpage/orderTracking";
-import Timeline from "./ProjectDesign/analytics/analytics";
+import Signup from "./ProjectDesign/Registration page/register";
+import Login from "./ProjectDesign/Login/Login";
+import Analytics from "./ProjectDesign/analytics/analytics";
 
 
 function App() {
@@ -16,7 +18,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/orderpage" element={<OrderPage/>}/>
         <Route path="/orderTracking/:id" element={<OrderTracking />} />
-        <Route path="/analytics" element={<Timeline />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
       </Routes>
     </Router>
   );

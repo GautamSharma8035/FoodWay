@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sidenav from "../Sidenavbar/sidenav";
 import Dashboardnav from "../Dashboardnav/dashboardnav";
+import DashboardFooter from '../Footer/Dashboardfooter';
 
 const orders = [
   { id: "5552351", date: "26 Feb 2025, 12:42 AM", customer: "Rahul Verma", location: "ABC", amount: "164.52", status: "New Order" },
@@ -21,7 +22,7 @@ const OrderPage = () => {
   };
 
   return (
-    
+    <>    
       <div className="dashboard-wrapper">
         <Sidenav isOpen={isSidenavOpen} setIsOpen={setIsSidenavOpen} />
         <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''}`}>
@@ -75,7 +76,12 @@ const OrderPage = () => {
           </Table>
         </div>
       </div>
+     
     </div>
+     <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} `}>
+     <DashboardFooter/>
+     </div>
+     </>
   );
 };
 

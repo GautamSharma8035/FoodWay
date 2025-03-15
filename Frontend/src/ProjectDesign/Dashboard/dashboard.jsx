@@ -7,7 +7,7 @@ import { Card, Button, ProgressBar } from "react-bootstrap";
 import { FaUtensils, FaDollarSign, FaClipboardList, FaUsers } from "react-icons/fa";
 import DoughnutChart from './DoughnutChart';
 import RevenueCard from './RevenueCard';
-import Footer from '../Footer/footer';
+import DashboardFooter from '../Footer/Dashboardfooter';
 
 
 
@@ -46,7 +46,7 @@ function Dashboard() {
 
   return (
     <>
-      <div className='container-fluid'>
+      <div className='container-fluid mb-5'>
         <div className="dashboard-wrapper">
           <Sidenav
             isOpen={isSidenavOpen}
@@ -166,15 +166,17 @@ function Dashboard() {
                   </div>
                 </div>;
               </Card>
-              <RevenueCard/>
+              <RevenueCard />
             </div>
           </div>
+         
         </div>
-        <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} `}>
-        <Footer />
-        </div>
+
       </div>
-      
+      <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} `}>
+            <DashboardFooter />
+          </div>
+
 
     </>
   )

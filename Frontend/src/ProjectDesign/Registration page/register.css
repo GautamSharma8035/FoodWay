@@ -1,0 +1,23 @@
+.signup-container {
+    height: 100vh;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-card {
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.btn-outline-primary {
+    color: rgb(81, 5, 163);
+    border-color: rgb(81, 5, 163);
+}
+
+.btn-outline-primary:hover {
+    background-color: rgb(81, 5, 163);
+    color: white;
+}
