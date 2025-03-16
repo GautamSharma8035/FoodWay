@@ -140,7 +140,7 @@ const Analytics = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                 >
-                  <span className="badge bg-primary me-3" style={{ fontSize: "1rem", padding: "10px 15px", borderRadius: "50%" }}>{index + 1}</span>
+                  <span className="badge me-3" style={{ fontSize: "1rem", padding: "10px 15px", borderRadius: "50%", backgroundColor: "rgb(81, 5, 163)" }}>{index + 1}</span>
                   <img src={item.image} alt={item.name} className="item-image me-3" style={{ width: "60px", height: "60px", borderRadius: "10px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }} />
                   <div>
                     <strong style={{ fontSize: "1.1rem" }}>{item.name}</strong><br />

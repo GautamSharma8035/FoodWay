@@ -26,7 +26,7 @@ const Signup = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
-            alert("Form submitted successfully!");
+            window.location.href="/details"
         }
     };
 

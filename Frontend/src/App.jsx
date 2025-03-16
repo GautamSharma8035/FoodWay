@@ -8,6 +8,7 @@ import OrderTracking from "./ProjectDesign/orderpage/orderTracking";
 import Signup from "./ProjectDesign/Registration page/register";
 import Login from "./ProjectDesign/Login/Login";
 import Analytics from "./ProjectDesign/analytics/analytics";
+import Details from "./ProjectDesign/Registration page/Details";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/details" element={<Details/>} />
       </Routes>
     </Router>
   );
