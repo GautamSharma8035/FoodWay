@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 function Nav() {
   const Navigate=useNavigate();
 
-  const redirect = ()=>{
-    Navigate('LoginSignUp')
+  const redirectsignup = ()=>{
+    Navigate('/signup')
   }
   return (
     <>
@@ -16,8 +16,7 @@ function Nav() {
         <div className="container w-100 p-3 rounded-bottom d-flex justify-content-between nav-animation" style={{backgroundColor:"rgb(81, 5, 163)"}}>
           <h2 className="form-label container text-light shadow-css">FoodWay-Partner</h2>
           <div className="d-flex gap-5">
-           
-            <button type="button" className="btn btn-light" style={{color:"rgb(81, 5, 163)"}} onClick={redirect}>Login/SignUp</button>
+            <button type="button" className="btn btn-light" style={{color:"rgb(81, 5, 163)"}} onClick={redirectsignup}>Login/SignUp</button>
           </div>
         </div>
       </div>

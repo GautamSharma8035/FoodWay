@@ -1,0 +1,88 @@
+.signup-container {
+    height: 100vh;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    height: calc(100vh - 100px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .signup-card {
+    max-width: 500px;
+    max-height: 500px;
+    overflow-y: auto;
+    background: white;
+
+  }
+  
+
+  .signup-card::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .signup-card::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .signup-card::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+  
+  .signup-card::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+.btn-outline-primary {
+    color: rgb(81, 5, 163);
+    border-color: rgb(81, 5, 163);
+}
+
+.btn-outline-primary:hover {
+    background-color: rgb(81, 5, 163);
+    color: white;
+    border-color: rgb(81, 5, 163);
+}
+
+.border-hover{
+    border-bottom: 3px solid white;
+    padding: 10px 24px 10px 24px;
+    background-color: white;
+    
+   
+}
+.border-hover:hover{
+    border-bottom: white;
+    padding: 10px 24px 10px 24px;
+    background-color: white;
+    
+
+}
+.handle-placeholder::placeholder{
+    color: rgba(0,0,0,0.30);
+}
+.btn-unselected{
+    border: none;
+    cursor: not-allowed;
+    background-color: white;
+}
+.btn-rounded-none{
+    border-radius: 0%;
+    }
+
+.tick-icon{
+    position: relative;
+    left: 60px;
+    color: green;
+}
+.border-css{
+    
+    background-color: white;
+}

@@ -1,17 +1,31 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
-import './sidenav.css'
+import './sidenav.css';
 import { RxCross2 } from "react-icons/rx";
+import { useNavigate } from 'react-router-dom';
 
 
 function Sidenav({ isOpen, setIsOpen }) {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
-    const [activeItem, setActiveItem] = useState("dashboard");
+    const [activeItem, setActiveItem] = useState('dashboard');
     const sidebarRef = useRef(null);
+    const order = useNavigate();
 
+    // Toggle submenu open/close
     const toggleSubmenu = () => {
         setIsSubmenuOpen(prevState => !prevState);
+    };
+    const dashboardnavigate = () =>{
+        order('/dashboard')
+    }
+
+    const ordernavigate = () => {
+        order('/orderpage');
+    };
+
+    const analyticnavigate = () => {
+        order('/analytics');
     };
 
     const toggleSidebar = () => {
@@ -26,9 +40,17 @@ function Sidenav({ isOpen, setIsOpen }) {
 
     const handleItemClick = (item) => {
         setActiveItem(item);
+        // Store the active item in localStorage
+        localStorage.setItem('activeItem', item);
     };
 
     useEffect(() => {
+        // Check if there is an active item in localStorage
+        const storedActiveItem = localStorage.getItem('activeItem');
+        if (storedActiveItem) {
+            setActiveItem(storedActiveItem);
+        }
+
         if (isOpen) {
             document.addEventListener('mousedown', handleClickOutside);
         } else {
@@ -44,8 +66,7 @@ function Sidenav({ isOpen, setIsOpen }) {
         <div className="sidenav-container" ref={sidebarRef}>
             <div className="toggle-btn" onClick={toggleSidebar}
                 style={{ cursor: 'pointer' }} >
-                {isOpen === false ? <IoReorderThreeOutline
-                    size={25} /> : <RxCross2 size={25} />}
+                {isOpen === false ? <IoReorderThreeOutline size={25} /> : <RxCross2 size={25} />}
             </div>
 
             <div className={`sidebar ${isOpen ? 'open' : ''}`}>
@@ -55,13 +76,13 @@ function Sidenav({ isOpen, setIsOpen }) {
                         <ul>
                             <li
                                 className={activeItem === 'dashboard' ? 'active' : ''}
-                                onClick={() => handleItemClick('dashboard')}
+                                onClick={() => {handleItemClick('dashboard'), dashboardnavigate()}}
                             >
                                Dashboard
                             </li>
                             <li
                                 className={activeItem === 'orders' ? 'active' : ''}
-                                onClick={() => handleItemClick('orders')}
+                                onClick={() => { handleItemClick('orders'); ordernavigate(); }}
                             >
                                 Orders
                             </li>
@@ -105,26 +126,24 @@ function Sidenav({ isOpen, setIsOpen }) {
                                             >
                                                 Members
                                             </li>
-                                            <li
+                                            {/* <li
                                                 className={activeItem === 'general' ? 'active' : ''}
                                                 onClick={() => handleItemClick('general')}
                                             >
                                                 General Customer
-                                            </li>
+                                            </li> */}
                                         </ul>
                                     )}
                                 </details>
                             </li>
                             <li
                                 className={activeItem === 'analytics' ? 'active' : ''}
-                                onClick={() => handleItemClick('analytics')}
+                                onClick={() => { handleItemClick('analytics'); analyticnavigate(); }}
                             >
                                 Analytics
                             </li>
-
-
                         </ul>
-                       
+
                         <div className="menu-card-container d-flex justify-content-center align-items-center mt-5">
                             <div className="card text-white p-2 shadow-lg menu-card d-flex flex-column flex-nowrap"
                                 style={{
@@ -134,8 +153,8 @@ function Sidenav({ isOpen, setIsOpen }) {
                                     textAlign: "center"
                                 }}
                             >
-                                <span className="card-title" style={{ wordWrap: "break-word", fontSize:"17px"}}>
-                                    Organize your menus <br/>through button below
+                                <span className="card-title" style={{ wordWrap: "break-word", fontSize: "17px" }}>
+                                    Organize your menus <br />through button below
                                 </span>
                                 <button className="btn btn-light mt-3 fw-bold w-100"
                                     style={{
@@ -146,33 +165,33 @@ function Sidenav({ isOpen, setIsOpen }) {
                                     + Add Menus
                                 </button>
                             </div>
-                            
+
                         </div>
                         <button className="btn btn-light mt-3 fw-bold w-100"
-                                    style={{
-                                        background: "linear-gradient(to right, #6366F1, #8B5CF6)",
-                                        borderRadius: "10px",
-                                        transition: "all 0.3s ease",
-                                        color:"white",
-                                    }}>
-                                    Contact Us
-                                </button><br/>
+                            style={{
+                                background: "linear-gradient(to right, #6366F1, #8B5CF6)",
+                                borderRadius: "10px",
+                                transition: "all 0.3s ease",
+                                color: "white",
+                            }}>
+                            Contact Us
+                        </button><br />
                         <button className="btn btn-light mt-3 fw-bold w-100"
-                                    style={{
-                                        background: "linear-gradient(to right, #6366F1, #8B5CF6)",
-                                        borderRadius: "10px",
-                                        transition: "all 0.3s ease",
-                                        color:"white",
-                                    }}>
-                                    Log Out
-                                </button>
+                            style={{
+                                background: "linear-gradient(to right, #6366F1, #8B5CF6)",
+                                borderRadius: "10px",
+                                transition: "all 0.3s ease",
+                                color: "white",
+                            }}>
+                            Log Out
+                        </button>
                     </>
                 )}
 
             </div>
-            <footer/>
+            <footer />
         </div>
-      
+
     );
 }
 
