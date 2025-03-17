@@ -14,9 +14,9 @@ function Details() {
         Documentation: false
     });
 
-    useEffect(() => {
-        localStorage.setItem("activeTab", activeState);
-    }, [activeState]);
+    // useEffect(() => {
+    //     localStorage.setItem("activeTab", activeState);
+    // }, [activeState]);
 
     const handleNext = (currentTab) => {
         setCompletedTabs(prev => ({ ...prev, [currentTab]: true }));

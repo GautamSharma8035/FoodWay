@@ -47,6 +47,7 @@ export function Personal({SetActiveState   , handleNext}) {
         e.preventDefault();
         if (validateForm()) {
             SetActiveState("Restaurent")
+            handleNext();
         }
     };
 
@@ -90,7 +91,7 @@ export function Personal({SetActiveState   , handleNext}) {
                         {errors.image && <small className="text-danger">{errors.image}</small>}
                     </div>
                     <div className="d-flex justify-content-end">
-                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={handleNext}>Next <MdNavigateNext size={25}/></button>
+                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }}>Next <MdNavigateNext size={25}/></button>
                     </div>
                 </form>
             </div>
@@ -149,6 +150,7 @@ export function Restaurent({SetActiveState  , handleNext}) {
             setErrors(newErrors);
         } else {
             SetActiveState("Documentation")
+            handleNext();
         }
     };
 
@@ -253,7 +255,7 @@ export function Restaurent({SetActiveState  , handleNext}) {
 
                     <div className="d-flex justify-content-between">
                     <button type="button" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={()=>SetActiveState("personal")}><GrFormPrevious size={25}/> Previous</button>
-                        <button type="submit" className="btn text-light"  style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={handleNext}>Next <MdNavigateNext size={25}/></button>
+                        <button type="submit" className="btn text-light"  style={{ backgroundColor: "rgb(81, 5, 163)" }}>Next <MdNavigateNext size={25}/></button>
                         
                     </div>
                 </form>
@@ -366,7 +368,7 @@ export function Documentation({SetActiveState , handleNext}) {
 
                     <div className="d-flex justify-content-between">
                     <button type="text" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={()=>SetActiveState("Restaurent")}><GrFormPrevious size={25}/> Previous</button>
-                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={handleNext}>Next <MdNavigateNext size={25}/></button>
+                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={handleNext}>Register <MdNavigateNext size={25}/></button>
                        
                     </div>
                 </form>
