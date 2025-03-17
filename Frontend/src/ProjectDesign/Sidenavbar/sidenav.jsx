@@ -4,6 +4,7 @@ import { MdDashboard } from "react-icons/md";
 import './sidenav.css'
 import { RxCross2 } from "react-icons/rx";
 
+
 function Sidenav({ isOpen, setIsOpen }) {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
     const [activeItem, setActiveItem] = useState("dashboard");
@@ -56,7 +57,7 @@ function Sidenav({ isOpen, setIsOpen }) {
                                 className={activeItem === 'dashboard' ? 'active' : ''}
                                 onClick={() => handleItemClick('dashboard')}
                             >
-                                Dashboard
+                               Dashboard
                             </li>
                             <li
                                 className={activeItem === 'orders' ? 'active' : ''}
