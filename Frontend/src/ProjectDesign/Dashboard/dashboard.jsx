@@ -59,7 +59,7 @@ function Dashboard() {
           <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} mb-5`}>
             <div className='container mt-5'>
               <h3>Dashboard</h3>
-              <p>Welcome to Restaurent Name</p>
+              <p>Welcome, Restaurent Name</p>
             </div>
             <div className='container'>
 
