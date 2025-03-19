@@ -5,6 +5,7 @@ import './sidenav.css';
 import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 
+
 function Sidenav({ isOpen, setIsOpen }) {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
     const [activeItem, setActiveItem] = useState('dashboard');
@@ -77,7 +78,7 @@ function Sidenav({ isOpen, setIsOpen }) {
                                 className={activeItem === 'dashboard' ? 'active' : ''}
                                 onClick={() => {handleItemClick('dashboard'), dashboardnavigate()}}
                             >
-                                Dashboard
+                               Dashboard
                             </li>
                             <li
                                 className={activeItem === 'orders' ? 'active' : ''}

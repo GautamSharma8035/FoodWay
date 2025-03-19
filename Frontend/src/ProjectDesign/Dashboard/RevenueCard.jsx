@@ -62,11 +62,11 @@ const RevenueCard = () => {
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "15px" }}>
         <div>
           <p style={{ margin: 0, fontSize: "14px", color: "#4C63FF" }}>Income</p>
-          <h3 style={{ margin: 0 }}>$126,000</h3>
+          <h3 style={{ margin: 0 }}>&#8377;126,000</h3>
         </div>
         <div>
           <p style={{ margin: 0, fontSize: "14px", color: "#B43AFF" }}>Expense</p>
-          <h3 style={{ margin: 0 }}>$126,000</h3>
+          <h3 style={{ margin: 0 }}>&#8377;126,000</h3>
         </div>
       </div>
 

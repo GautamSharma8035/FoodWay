@@ -6,6 +6,7 @@ import Dashboardnav from '../Dashboardnav/dashboardnav';
 import { Card, Button, ProgressBar } from "react-bootstrap";
 import { FaUtensils, FaDollarSign, FaClipboardList, FaUsers } from "react-icons/fa";
 import DoughnutChart from './DoughnutChart';
+import { FaRupeeSign } from "react-icons/fa6";
 import RevenueCard from './RevenueCard';
 import DashboardFooter from '../Footer/Dashboardfooter';
 
@@ -15,7 +16,7 @@ function Dashboard() {
   const [selectButton, setSelectButton] = useState("monthly");
   const cards = [
     { icon: <FaUtensils size={30} />, value: "0", label: "Total Menus", change: "0% (30 days)", color: "primary" },
-    { icon: <FaDollarSign />, value: "0", label: "Total Revenue", change: "0% (30 days)", color: "primary" },
+    { icon:  <FaRupeeSign/>, value: "0", label: "Total Revenue", change: "0% (30 days)", color: "primary" },
     { icon: <FaClipboardList />, value: "0", label: "Total Orders", change: "0% (30 days)", color: "primary" },
     { icon: <FaUsers />, value: "0", label: "Total Customers", change: "0% (30 days)", color: "primary" }
   ];
