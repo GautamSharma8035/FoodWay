@@ -5,7 +5,7 @@ import { IoCheckmarkDoneOutline } from "react-icons/io5";
 import { FaClock, FaHome, FaRupeeSign, FaShippingFast } from "react-icons/fa";
 
 function Details() {
-    const [activeState, SetActiveState] = useState(localStorage.getItem("activeTab") || "personal");
+    const [activeState, SetActiveState] = useState("personal");
 
     // Completed tabs track karne ke liye ek state
     const [completedTabs, setCompletedTabs] = useState({
@@ -14,9 +14,9 @@ function Details() {
         Documentation: false
     });
 
-    useEffect(() => {
-        localStorage.setItem("activeTab", activeState);
-    }, [activeState]);
+    // useEffect(() => {
+    //     localStorage.setItem("activeTab", activeState);
+    // }, [activeState]);
 
     const handleNext = (currentTab) => {
         setCompletedTabs(prev => ({ ...prev, [currentTab]: true }));
@@ -43,13 +43,13 @@ function Details() {
 
     return (
         <>
-            <div className="container-fluid d-flex gap-5 vh-100 ">
+            <div className="container-fluid d-flex justify-content-center gap-5 vh-100 ">
                 <div className="container-fluid w-50  border-css p-4">
                     <div className="">
                         <p className="fw-bold">Already have an account?</p> <button className="btn btn-outline-primary" >Login</button>
                     </div>
                     <div className="goals-section p-4 mt-5">
-                        <h2 className="text-center fw-bold " style={{color:"rgb(81, 5, 163)"}}>Our Mission</h2>
+                        <h2 className="text-center fw-bold " style={{ color: "rgb(81, 5, 163)" }}>Our Mission</h2>
                         <p className="text-center">Delivering quality food at low prices to every home in minimum time.</p>
 
                         <div className="row mt-3">
@@ -81,7 +81,7 @@ function Details() {
 
 
                 </div>
-                <div className="container-fluid w-50 d-flex justify-content-center flex-column flex-nowrap">
+                <div className="container-fluid w-50 d-flex justify-content-center flex-column flex-nowrap media-container">
                     <div className="mx-2  container-fluid d-flex justify-content-center" style={{
                         color: "rgb(81, 5, 163)",
                         textShadow: "5px 10px white"
@@ -125,10 +125,10 @@ function Details() {
                                 </p>
 
                             </div>
-                            
+
                         </div>
-                        <div className="d-flex justify-content-center gap-3 ">
-                        {renderCards(activeState)}                
+                        <div className="d-flex justify-content-center gap-3 signup-container-details  ">
+                            {renderCards(activeState)}
                         </div>
                     </div>
                 </div>

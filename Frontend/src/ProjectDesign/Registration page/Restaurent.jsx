@@ -47,6 +47,7 @@ export function Personal({SetActiveState   , handleNext}) {
         e.preventDefault();
         if (validateForm()) {
             SetActiveState("Restaurent")
+            handleNext();
         }
     };
 
@@ -55,7 +56,7 @@ export function Personal({SetActiveState   , handleNext}) {
     return (
         <div className="d-flex justify-content-center align-items-center w-75">
             <div className="signup-card p-4 w-100">
-                <h5 className="text-start mb-3">Personal Details</h5>
+                {/* <h5 className="text-start mb-3">Personal Details</h5> */}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label className="form-label"><FaUser /> Full Name</label>
@@ -90,7 +91,7 @@ export function Personal({SetActiveState   , handleNext}) {
                         {errors.image && <small className="text-danger">{errors.image}</small>}
                     </div>
                     <div className="d-flex justify-content-end">
-                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={handleNext}>Next <MdNavigateNext size={25}/></button>
+                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }}>Next <MdNavigateNext size={25}/></button>
                     </div>
                 </form>
             </div>
@@ -149,13 +150,14 @@ export function Restaurent({SetActiveState  , handleNext}) {
             setErrors(newErrors);
         } else {
             SetActiveState("Documentation")
+            handleNext();
         }
     };
 
     return (
         <div className="d-flex justify-content-center align-items-center w-75">
             <div className="signup-card p-4 w-100">
-                <h5 className="text-start mb-3">Restaurant Details</h5>
+                {/* <h5 className="text-start mb-3">Restaurant Details</h5> */}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label className="form-label"><FaBuilding /> Restaurant Name</label>
@@ -253,7 +255,7 @@ export function Restaurent({SetActiveState  , handleNext}) {
 
                     <div className="d-flex justify-content-between">
                     <button type="button" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={()=>SetActiveState("personal")}><GrFormPrevious size={25}/> Previous</button>
-                        <button type="submit" className="btn text-light"  style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={handleNext}>Next <MdNavigateNext size={25}/></button>
+                        <button type="submit" className="btn text-light"  style={{ backgroundColor: "rgb(81, 5, 163)" }}>Next <MdNavigateNext size={25}/></button>
                         
                     </div>
                 </form>
@@ -316,7 +318,7 @@ export function Documentation({SetActiveState , handleNext}) {
     return (
         <div className="d-flex justify-content-center align-items-center w-75">
             <div className="signup-card p-4 w-100">
-                <h5 className="text-start mb-3">Documents</h5>
+                {/* <h5 className="text-start mb-3">Documents</h5> */}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label className="form-label"><FaIdCard /> Aadhar Card</label>
@@ -366,7 +368,7 @@ export function Documentation({SetActiveState , handleNext}) {
 
                     <div className="d-flex justify-content-between">
                     <button type="text" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={()=>SetActiveState("Restaurent")}><GrFormPrevious size={25}/> Previous</button>
-                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={handleNext}>Next <MdNavigateNext size={25}/></button>
+                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }}>Register <MdNavigateNext size={25}/></button>
                        
                     </div>
                 </form>

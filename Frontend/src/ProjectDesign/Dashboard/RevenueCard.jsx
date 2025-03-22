@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend } from "chart.js";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
 
 const RevenueCard = () => {
+  const [timeframe, setTimeframe] = useState("Monthly");
+
   const data = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
     datasets: [
@@ -36,42 +39,47 @@ const RevenueCard = () => {
       },
     },
     scales: {
-      x: {
-        grid: { display: false },
-      },
-      y: {
-        beginAtZero: true,
-      },
+      x: { grid: { display: false } },
+      y: { beginAtZero: true },
     },
   };
 
   return (
-    <div className="w-50 mt-4 p-4" style={{ background: "white", borderRadius: "20px", padding: "20px", boxShadow: "0px 10px 30px rgba(0,0,0,0.1)" }}>
-      <div className="header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "15px" }}>
-        <div>
-          <h4 style={{ margin: 0, fontSize: "18px" }}>Revenue</h4>
-          
-        </div>
-        <select style={{ border: "none", background: "#F5F5F5", padding: "5px 10px", borderRadius: "5px" }}>
-          <option>Monthly</option>
-          <option>Weekly</option>
-          <option>Today</option>
-        </select>
-      </div>
+    <div className="container-fluid mt-4">
+      <div className="row justify-content-center">
+        <div className="col-12 col-md-10 col-lg-8 col-xl-6 p-3 bg-white rounded shadow-sm w-100">
+          {/* Header */}
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <h4 className="mb-0">Revenue</h4>
+            <select
+              className="form-select form-select-sm"
+              style={{ maxWidth: "120px" }}
+              value={timeframe}
+              onChange={(e) => setTimeframe(e.target.value)}
+            >
+              <option>Monthly</option>
+              <option>Weekly</option>
+              <option>Today</option>
+            </select>
+          </div>
 
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "15px" }}>
-        <div>
-          <p style={{ margin: 0, fontSize: "14px", color: "#4C63FF" }}>Income</p>
-          <h3 style={{ margin: 0 }}>&#8377;126,000</h3>
-        </div>
-        <div>
-          <p style={{ margin: 0, fontSize: "14px", color: "#B43AFF" }}>Expense</p>
-          <h3 style={{ margin: 0 }}>&#8377;126,000</h3>
-        </div>
-      </div>
+          {/* Income & Expense */}
+          <div className="row text-center mb-3">
+            <div className="col-6">
+              <p className="text-primary mb-1">Income</p>
+              <h3 className="mb-0">&#8377;126,000</h3>
+            </div>
+            <div className="col-6">
+              <p className="text-secondary mb-1">Expense</p>
+              <h3 className="mb-0">&#8377;126,000</h3>
+            </div>
+          </div>
 
-      <div style={{ height: "200px" }}>
-        <Line data={data} options={options} />
+          {/* Chart */}
+          <div className="chart-container" style={{ height: "250px" }}>
+            <Line data={data} options={options} />
+          </div>
+        </div>
       </div>
     </div>
   );

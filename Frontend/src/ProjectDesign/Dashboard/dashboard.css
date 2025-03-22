@@ -103,4 +103,102 @@ body{
   
     
  
+  @media (max-width: 991.98px) {
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      padding: 0 15px;
+    }
+    
+    .main-content.content-shifted {
+      margin-left: 250px;
+      width: calc(100% - 250px);
+    }
+    
+    .container.d-flex.gap-3 {
+      flex-direction: column;
+    }
+    
+    .container.d-flex.gap-3 .order-summary-card,
+    .container.d-flex.gap-3 .card {
+      width: 100% !important;
+    }
+    
+    .progress-bars {
+      padding-left: 15px;
+    }
+  }
+  
+  /* For mobile (576px and down) */
+  @media (max-width: 767.98px) {
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      padding: 0 10px;
+    }
+    
+    .main-content.content-shifted {
+      margin-left: 0;
+      width: 100%;
+    }
+    
+    .row.g-4 {
+      margin: 0 -8px;
+    }
+    
+    .d-flex.justify-content-between.text-center {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .d-flex.align-items-center.w-100 {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .chart-container {
+      margin-bottom: 20px;
+    }
+    
+    .progress-bars {
+      width: 100%;
+      padding: 0;
+    }
+    
+    .d-flex.justify-content-between.align-items-center.mb-3 {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 10px;
+    }
+    
+    .bg-light.rounded-pill.p-1 {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  /* For very small screens (375px and down) */
+  @media (max-width: 575.98px) {
+    .card {
+      padding: 10px !important;
+    }
+    
+    .card .p-3.rounded-circle {
+      padding: 8px !important;
+      font-size: 1rem !important;
+    }
+    
+    .card .ms-5 {
+      margin-left: 10px !important;
+    }
+    
+    .card h3 {
+      font-size: 1.2rem;
+    }
+    
+    .btn.rounded-pill {
+      padding: 5px 10px !important;
+      font-size: 0.8rem;
+    }
+  }
   

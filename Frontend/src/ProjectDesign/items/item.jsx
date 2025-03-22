@@ -25,188 +25,125 @@ function Item({ isModel, setIsModel }) {
     ]);
 
     return (
-        <div className="container-fluid mt-5 p-5">
-            <h2 className="text-center mb-4" style={{ fontFamily: "algerian", fontSize: "40px" }}>
-                <span style={{ color: "rgb(81, 5, 163)" }}>Our</span> Special <span style={{ color: "rgb(81, 5, 163)" }}>Menu</span>
+        <div className="container-fluid py-5">
+            <h2 className="text-center mb-4 responsive-title">
+                <span className="title-accent">Our</span> Special <span className="title-accent">Menu</span>
             </h2>
-            <div
-                className="p-5"
-                style={{
-                    overflow: 'hidden',
-                    boxShadow: 'inset 0px 0px 50px rgba(0, 0, 0, 0.02)', 
-                }}
-            >
-                <div className="row justify-content-center mb-5">
-                    <div className="card-container">
-                       
-                        {items.map((food) => (
-                            <div key={food.id} className="card-item">
-                                <div
-                                    className="p-2"
-                                    style={{
-                                        display: 'flex',
-                                        flexDirection: 'row',
-                                        borderRadius: '15px',
-                                        overflow: 'hidden',
-                                        marginRight: '15px',
-                                        width: '100%',
-                                        maxWidth: '450px', 
-
-                                        backgroundColor: "rgba(0,0,0,0.1)"
-                                    }}
-                                >
-                                    <img
-                                        src={food.img}
-                                        className="card-img-left"
-                                        alt={food.name}
-                                        style={{
-                                            width: '70px', 
-                                            height: '70px', 
-                                            objectFit: 'cover',
-                                            borderRadius: '15px',
-                                        }}
-                                    />
-                                    <div
-                                        className="card-body d-flex flex-column justify-content-center"
-                                        style={{
-                                            flex: 1,
-                                            paddingLeft: '25px',
-                                            paddingRight: '10px',
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            textAlign: 'left',
-                                        }}
-                                    >
-                                        <h5
-                                            className="card-title"
-                                            style={{
-                                                fontSize: '25px', 
-                                                fontWeight: 'bold',
-                                                margin: 0, 
-                                                wordBreak: 'break-word', 
-                                            }}
-                                        >
-                                            {food.name}
-                                        </h5>
+            <div className="menu-container">
+                <div className="row justify-content-center mb-4">
+                    <div className="col-12">
+                        <div className="menu-section">
+                            <h3 className="menu-section-title d-md-block d-none text-center mb-3">Fast Food</h3>
+                            <div className="card-container">
+                                {items.map((food) => (
+                                    <div key={food.id} className="card-item">
+                                        <div className="food-card">
+                                            <img
+                                                src={food.img}
+                                                className="card-img-left"
+                                                alt={food.name}
+                                            />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{food.name}</h5>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
+                                {/* Duplicate items for continuous animation */}
+                                {items.map((food) => (
+                                    <div key={`dup-${food.id}`} className="card-item">
+                                        <div className="food-card">
+                                            <img
+                                                src={food.img}
+                                                className="card-img-left"
+                                                alt={food.name}
+                                            />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{food.name}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
-                <div className="row justify-content-center mb-5">
-                    <div className="card-container-veg">
-                       
-                        {veg.map((food) => (
-                            <div key={food.id} className="card-item">
-                                <div
-                                    className="p-2"
-                                    style={{
-                                        display: 'flex',
-                                        flexDirection: 'row',
-                                        borderRadius: '15px',
-                                        overflow: 'hidden',
-                                        marginRight: '15px',
-                                        width: '100%', 
-                                        maxWidth: '450px', 
-
-                                        backgroundColor: "rgba(0,0,0,0.1)"
-                                    }}
-                                >
-                                    <img
-                                        src={food.img}
-                                        className="card-img-left"
-                                        alt={food.name}
-                                        style={{
-                                            width: '70px', 
-                                            height: '70px', 
-                                            objectFit: 'cover',
-                                            borderRadius: '15px',
-                                        }}
-                                    />
-                                    <div
-                                        className="card-body d-flex flex-column justify-content-center"
-                                        style={{
-                                            flex: 1,
-                                            paddingLeft: '25px',
-                                            paddingRight: '10px',
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            textAlign: 'left',
-                                        }}
-                                    >
-                                        <h5
-                                            className="card-title"
-                                            style={{
-                                                fontSize: '25px', 
-                                                fontWeight: 'bold',
-                                                margin: 0, 
-                                                wordBreak: 'break-word', 
-                                            }}
-                                        >
-                                            {food.name}
-                                        </h5>
+                
+                <div className="row justify-content-center mb-4">
+                    <div className="col-12">
+                        <div className="menu-section">
+                            <h3 className="menu-section-title d-md-block d-none text-center mb-3">Vegetarian</h3>
+                            <div className="card-container-veg">
+                                {veg.map((food) => (
+                                    <div key={food.id} className="card-item">
+                                        <div className="food-card">
+                                            <img
+                                                src={food.img}
+                                                className="card-img-left"
+                                                alt={food.name}
+                                            />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{food.name}</h5>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
+                                {/* Duplicate items for continuous animation */}
+                                {veg.map((food) => (
+                                    <div key={`dup-${food.id}`} className="card-item">
+                                        <div className="food-card">
+                                            <img
+                                                src={food.img}
+                                                className="card-img-left"
+                                                alt={food.name}
+                                            />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{food.name}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
+                
                 <div className="row justify-content-center">
-                    <div className="card-container-nonveg">
-                     
-                        {nonveg.map((food) => (
-                            <div key={food.id} className="card-item">
-                                <div
-                                    className="p-2"
-                                    style={{
-                                        display: 'flex',
-                                        flexDirection: 'row',
-                                        borderRadius: '15px',
-                                        overflow: 'hidden',
-                                        marginRight: '15px',
-                                        width: '100%', 
-                                        maxWidth: '450px', 
-                                        backgroundColor: "rgba(0,0,0,0.1)"
-                                    }}
-                                >
-                                    <img
-                                        src={food.img}
-                                        className="card-img-left"
-                                        alt={food.name}
-                                        style={{
-                                            width: '70px', 
-                                            height: '70px', 
-                                            objectFit: 'cover',
-                                            borderRadius: '15px',
-                                        }}
-                                    />
-                                    <div
-                                        className="card-body d-flex flex-column justify-content-center"
-                                        style={{
-                                            flex: 1,
-                                            paddingLeft: '25px',
-                                            paddingRight: '10px',
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            textAlign: 'left',
-                                        }}
-                                    >
-                                        <h5
-                                            className="card-title"
-                                            style={{
-                                                fontSize: '25px',
-                                                fontWeight: 'bold',
-                                                margin: 0, 
-                                                wordBreak: 'break-word',
-                                            }}
-                                        >
-                                            {food.name}
-                                        </h5>
+                    <div className="col-12">
+                        <div className="menu-section">
+                            <h3 className="menu-section-title d-md-block d-none text-center mb-3">Non-Vegetarian</h3>
+                            <div className="card-container-nonveg">
+                                {nonveg.map((food) => (
+                                    <div key={food.id} className="card-item">
+                                        <div className="food-card">
+                                            <img
+                                                src={food.img}
+                                                className="card-img-left"
+                                                alt={food.name}
+                                            />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{food.name}</h5>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
+                                {/* Duplicate items for continuous animation */}
+                                {nonveg.map((food) => (
+                                    <div key={`dup-${food.id}`} className="card-item">
+                                        <div className="food-card">
+                                            <img
+                                                src={food.img}
+                                                className="card-img-left"
+                                                alt={food.name}
+                                            />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{food.name}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </div>

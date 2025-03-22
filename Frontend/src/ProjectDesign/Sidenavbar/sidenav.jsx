@@ -16,7 +16,7 @@ function Sidenav({ isOpen, setIsOpen }) {
     const toggleSubmenu = () => {
         setIsSubmenuOpen(prevState => !prevState);
     };
-    const dashboardnavigate = () =>{
+    const dashboardnavigate = () => {
         order('/dashboard')
     }
 
@@ -76,9 +76,9 @@ function Sidenav({ isOpen, setIsOpen }) {
                         <ul>
                             <li
                                 className={activeItem === 'dashboard' ? 'active' : ''}
-                                onClick={() => {handleItemClick('dashboard'), dashboardnavigate()}}
+                                onClick={() => { handleItemClick('dashboard'), dashboardnavigate() }}
                             >
-                               Dashboard
+                                Dashboard
                             </li>
                             <li
                                 className={activeItem === 'orders' ? 'active' : ''}
@@ -91,50 +91,6 @@ function Sidenav({ isOpen, setIsOpen }) {
                                 onClick={() => handleItemClick('menus')}
                             >
                                 Menus
-                            </li>
-                            <li>
-                                <details>
-                                    <summary
-                                        onClick={toggleSubmenu}
-                                        style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-                                        className={activeItem === 'customers' ? 'active' : ''}
-                                    >
-                                        <span onClick={() => handleItemClick('customers')}>Customers</span>
-                                        <span
-                                            style={{
-                                                marginLeft: '10px',
-                                                transform: isSubmenuOpen ? 'rotate(90deg)' : 'rotate(0deg)',
-                                                transition: 'transform 0.3s ease-in-out',
-                                                marginLeft: 'auto'
-                                            }}
-                                        >
-                                            &#x2771;
-                                        </span>
-                                    </summary>
-
-                                    {isSubmenuOpen && (
-                                        <ul>
-                                            <li
-                                                className={activeItem === 'add-new' ? 'active' : ''}
-                                                onClick={() => handleItemClick('add-new')}
-                                            >
-                                                Add new
-                                            </li>
-                                            <li
-                                                className={activeItem === 'members' ? 'active' : ''}
-                                                onClick={() => handleItemClick('members')}
-                                            >
-                                                Members
-                                            </li>
-                                            {/* <li
-                                                className={activeItem === 'general' ? 'active' : ''}
-                                                onClick={() => handleItemClick('general')}
-                                            >
-                                                General Customer
-                                            </li> */}
-                                        </ul>
-                                    )}
-                                </details>
                             </li>
                             <li
                                 className={activeItem === 'analytics' ? 'active' : ''}
