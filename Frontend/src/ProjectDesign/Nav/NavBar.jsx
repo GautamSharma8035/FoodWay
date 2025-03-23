@@ -11,6 +11,9 @@ function Nav() {
   const redirectsignup = () => {
     Navigate('/signup');
   };
+  const redirectlogin=()=>{
+    Navigate('/login')
+  }
 
   return (
     <>
@@ -29,6 +32,7 @@ function Nav() {
               type="button"
               className="btn btn-light d-flex align-items-center gap-1"
               style={{ color: "rgb(81, 5, 163)" }}
+              onClick={redirectlogin}
             >
               Login <MdLogin size={20} />
             </button>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaUser,FaCity,FaGlobe,FaHashtag, FaMapMarkerAlt, FaCalendar, FaImage, FaPhone, FaBuilding, FaIdCard, FaVenusMars, FaUtensils, FaReceipt, FaFileAlt } from "react-icons/fa";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 const fileTypes = ["image/jpeg", "image/jpg", "image/png", "application/pdf"];
 
@@ -54,7 +55,7 @@ export function Personal({SetActiveState   , handleNext}) {
    
 
     return (
-        <div className="d-flex justify-content-center align-items-center w-75">
+        <div className="d-flex justify-content-center align-items-center " style={{width:"69.50%"}}>
             <div className="signup-card p-4 w-100">
                 {/* <h5 className="text-start mb-3">Personal Details</h5> */}
                 <form onSubmit={handleSubmit}>

@@ -77,13 +77,14 @@
 }
 
 /* Card items */
-.card-item {
+.card-item-css {
     flex-shrink: 0;
     padding: 10px;
     width: 250px;
+    
 }
 
-.food-card {
+.food-card-css {
     display: flex;
     flex-direction: row;
     border-radius: 15px;
@@ -93,7 +94,7 @@
     height: 100%;
 }
 
-.card-img-left {
+.card-img-left-css {
     margin: auto;
     width: 80px;
     height: 80px;
@@ -101,7 +102,7 @@
     border-radius: 15px;
 }
 
-.card-body {
+.card-body-css {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -110,11 +111,12 @@
     flex: 1;
 }
 
-.card-title {
+.card-title-css {
     font-size: 20px;
     font-weight: bold;
     margin: 0;
     word-break: break-word;
+    
 }
 
 /* Responsive adjustments */
@@ -123,16 +125,16 @@
         font-size: 30px;
     }
     
-    .card-item {
+    .card-item-css {
         width: 200px;
     }
     
-    .card-img-left {
+    .card-img-left-css {
         width: 60px;
         height: 60px;
     }
     
-    .card-title {
+    .card-title-css {
         font-size: 16px;
     }
 }
@@ -142,16 +144,16 @@
         font-size: 24px;
     }
     
-    .card-item {
+    .card-item-css {
         width: 160px;
     }
     
-    .card-img-left {
+    .card-img-left-css {
         width: 50px;
         height: 50px;
     }
     
-    .card-title {
+    .card-title-css {
         font-size: 14px;
     }
     
@@ -166,5 +168,6 @@
     .card-container-veg:hover,
     .card-container-nonveg:hover {
         animation-play-state: paused;
+        
     }
 }

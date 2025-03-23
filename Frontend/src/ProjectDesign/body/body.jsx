@@ -105,8 +105,7 @@ function Body() {
           We serve delicious meals, ranging from fast food to traditional dishes.
           Each dish is prepared with care and delivered hot and fresh.
           Enjoy mouth-watering flavors that satisfy your cravings.
-          Our meals are made from quality ingredients for the best taste.
-          Experience great food, conveniently at your doorstep! 🍔🍕
+           🍔🍕
         </h5>
         </div>
       </div>

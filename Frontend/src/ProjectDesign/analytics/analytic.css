@@ -1,14 +1,24 @@
+.analytics-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center cards when screen is small */
+  gap: 20px; /* Space between cards */
+}
+
 .analytics-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 700px;
-    margin-left: 20px;
-  }
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 48%; /* Two cards in one row */
   
+}
+@media (max-width: 768px) {
+  .analytics-card {
+      width: 100%; /* Cards will stack below each other */
+  }
+}
   .analytics-title {
     font-weight: bold;
     margin-bottom: 15px;
@@ -168,27 +178,19 @@
   
   .food-card-image {
     position: relative;
-    width: 100%;
-    height: 0;
-    padding-top: 75%; /* Aspect ratio ke liye */
+    padding-top: 75%;
     overflow: hidden;
-    border-radius: 10px; /* Rounded corners agar chahiye */
-}
-
-.food-card-image img {
+  }
+  
+  .food-card-image img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-}
-
-.food-card-image img:hover {
-    transform: scale(1.1); 
-}
-
+    transition: transform 0.3s ease;
+  }
   
   .food-card-content {
     padding: 1rem;
@@ -279,6 +281,236 @@
     .row-cols-1 > * {
       flex: 0 0 100%;
       max-width: 100%;
+    }
+  }
+ 
+  
+  @media (min-width: 768px) {
+    .analytics-card {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    .w-md-50 {
+      width: 48% !important;
+    }
+  }
+  
+  .analytics-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .analytics-title {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .sales-summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 15px;
+  }
+  
+  .sales-item {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  @media (min-width: 768px) {
+    .sales-item {
+      font-size: 14px;
+    }
+  }
+  
+  .bg-light {
+    margin-bottom: 15px;
+  }
+  
+  .btn-selected {
+    background-color: #007bff;
+    color: white;
+    font-size: 0.75rem;
+  }
+  
+  .btn-unselected {
+    background-color: lightgray;
+    color: black;
+    font-size: 0.75rem;
+  }
+  
+  @media (min-width: 768px) {
+    .btn-selected, .btn-unselected {
+      font-size: 0.85rem;
+    }
+  }
+  
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px 0;
+  }
+  
+  .timeline-step {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 8px 0;
+  }
+  
+  @media (min-width: 768px) {
+    .timeline-step {
+      width: 80%;
+      padding: 10px 0;
+    }
+  }
+  
+  .timeline-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: lightgray;
+    position: relative;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      margin-right: 15px;
+    }
+  }
+  
+  .completed {
+    background-color: blue;
+  }
+  
+  .pending {
+    background-color: lightgray;
+  }
+  
+  .timeline-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 30px;
+    background-color: lightgray;
+    top: 25px;
+    left: 8px;
+    z-index: -1;
+  }
+  
+  @media (min-width: 768px) {
+    .timeline-step:not(:last-child)::after {
+      width: 5px;
+      height: 40px;
+      top: 30px;
+      left: 10px;
+    }
+  }
+  
+  .timeline-step.completed:not(:last-child)::after {
+    background-color: blue;
+  }
+  
+  .timeline-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .timeline-status {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  @media (min-width: 768px) {
+    .timeline-status {
+      font-size: 14px;
+    }
+  }
+  
+  .timeline-date {
+    font-size: 10px;
+    color: gray;
+  }
+  
+  @media (min-width: 768px) {
+    .timeline-date {
+      font-size: 12px;
+    }
+  }
+  
+  .dashboard-wrapper {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden; 
+  }
+  
+  .main-content {
+    position: relative;
+    margin-left: 70px; 
+    transition: margin-left 0.3s ease-in-out;
+    width: calc(100% - 70px);
+    padding: 0 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .main-content {
+      padding: 0 15px;
+    }
+  }
+  
+  .main-content.content-shifted {
+    margin-left: 250px;
+    width: calc(100% - 250px); 
+  }
+  
+  .sidenav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
+    overflow-x: hidden; 
+  }
+  
+  .food-grid-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .food-card {
+    height: 100%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 0.75rem;
+  }
+  
+  @media (min-width: 768px) {
+    .food-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
     }
   }
   

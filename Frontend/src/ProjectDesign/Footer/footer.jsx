@@ -26,7 +26,7 @@ function Footer({ isModel, setIsModel }) {
             </div>
 
             {/* Contact Info */}
-            <div className="col-md-4 col-sm-12 mb-4">
+            <div className="col-md-4 col-sm-12 mb-4 mt-4">
               <h5 className="text-light">Contact Us</h5>
               <details className="text-white">
                 <summary>Mobile Number</summary>
@@ -45,13 +45,13 @@ function Footer({ isModel, setIsModel }) {
               <details className="text-white">
                 <summary>Address</summary>
                 <div style={{ marginLeft: "40px" }}>
-                  <p>Aurbindo Square</p>
+                  <span>Aurbindo Square</span>
                 </div>
               </details>
             </div>
 
             {/* App Download Buttons */}
-            <div className="col-md-4 col-sm-12 mb-4">
+            <div className="col-md-4 col-sm-12 mb-4 mt-4">
               <button
                 type="button"
                 className="btn btn-light btn-lg text-dark w-100 mb-3"

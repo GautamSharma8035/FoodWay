@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './register.css'
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
 import { FaClock, FaHome, FaRupeeSign, FaShippingFast } from "react-icons/fa";
 
 function Signup(){
@@ -8,6 +9,11 @@ function Signup(){
     const [otp, setOtp] = useState("");
     const [email, setEmail] = useState("");
     const [errors, setErrors] = useState({});
+    const Navigate = useNavigate();
+
+  const redirectlogin = () => {
+    Navigate('/login');
+  };
 
     const validateForm = () => {
         let newErrors = {};
@@ -36,7 +42,7 @@ function Signup(){
             <div className="container-fluid d-flex gap-5 vh-100 ">
                 <div className="container-fluid w-50  border-css p-4">
                     <div className="">
-                        <p className="fw-bold">Already have an account?</p> <button className="btn btn-outline-primary" >Login</button>
+                        <p className="fw-bold">Already have an account?</p> <button className="btn btn-outline-primary" onClick={redirectlogin}>Login</button>
                     </div>
                     <div className="goals-section p-4 mt-5">
                         <h2 className="text-center fw-bold " style={{ color: "rgb(81, 5, 163)" }}>Our Mission</h2>

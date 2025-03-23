@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import './item.css';
 
 function Item({ isModel, setIsModel }) {
@@ -33,37 +33,23 @@ function Item({ isModel, setIsModel }) {
                 <div className="row justify-content-center mb-4">
                     <div className="col-12">
                         <div className="menu-section">
-                            <h3 className="menu-section-title d-md-block d-none text-center mb-3">Fast Food</h3>
+                            <h3 className="menu-section-title d-md-block d-none text-center mb-3" style={{color:"rgb(81, 5, 163)"}}>Fast Food</h3>
                             <div className="card-container">
                                 {items.map((food) => (
-                                    <div key={food.id} className="card-item">
-                                        <div className="food-card">
+                                    <div key={food.id} className="card-item-css">
+                                        <div className="food-card-css">
                                             <img
                                                 src={food.img}
-                                                className="card-img-left"
+                                                className="card-img-left-css"
                                                 alt={food.name}
                                             />
-                                            <div className="card-body">
-                                                <h5 className="card-title">{food.name}</h5>
+                                            <div className="card-body-css">
+                                                <h5 className="card-title-css">{food.name}</h5>
                                             </div>
                                         </div>
                                     </div>
                                 ))}
-                                {/* Duplicate items for continuous animation */}
-                                {items.map((food) => (
-                                    <div key={`dup-${food.id}`} className="card-item">
-                                        <div className="food-card">
-                                            <img
-                                                src={food.img}
-                                                className="card-img-left"
-                                                alt={food.name}
-                                            />
-                                            <div className="card-body">
-                                                <h5 className="card-title">{food.name}</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
+                              
                             </div>
                         </div>
                     </div>
@@ -72,37 +58,23 @@ function Item({ isModel, setIsModel }) {
                 <div className="row justify-content-center mb-4">
                     <div className="col-12">
                         <div className="menu-section">
-                            <h3 className="menu-section-title d-md-block d-none text-center mb-3">Vegetarian</h3>
+                            <h3 className="menu-section-title d-md-block d-none text-center mb-3" style={{color:"rgb(81, 5, 163)"}}>Vegetarian</h3>
                             <div className="card-container-veg">
                                 {veg.map((food) => (
-                                    <div key={food.id} className="card-item">
-                                        <div className="food-card">
+                                    <div key={food.id} className="card-item-css">
+                                        <div className="food-card-css">
                                             <img
                                                 src={food.img}
-                                                className="card-img-left"
+                                                className="card-img-left-css"
                                                 alt={food.name}
                                             />
-                                            <div className="card-body">
-                                                <h5 className="card-title">{food.name}</h5>
+                                            <div className="card-body-css">
+                                                <h5 className="card-title-css">{food.name}</h5>
                                             </div>
                                         </div>
                                     </div>
                                 ))}
-                                {/* Duplicate items for continuous animation */}
-                                {veg.map((food) => (
-                                    <div key={`dup-${food.id}`} className="card-item">
-                                        <div className="food-card">
-                                            <img
-                                                src={food.img}
-                                                className="card-img-left"
-                                                alt={food.name}
-                                            />
-                                            <div className="card-body">
-                                                <h5 className="card-title">{food.name}</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
+                               
                             </div>
                         </div>
                     </div>
@@ -111,37 +83,23 @@ function Item({ isModel, setIsModel }) {
                 <div className="row justify-content-center">
                     <div className="col-12">
                         <div className="menu-section">
-                            <h3 className="menu-section-title d-md-block d-none text-center mb-3">Non-Vegetarian</h3>
+                            <h3 className="menu-section-title d-md-block d-none text-center mb-3" style={{color:"rgb(81, 5, 163)"}}>Non-Vegetarian</h3>
                             <div className="card-container-nonveg">
                                 {nonveg.map((food) => (
-                                    <div key={food.id} className="card-item">
-                                        <div className="food-card">
+                                    <div key={food.id} className="card-item-css">
+                                        <div className="food-card-css">
                                             <img
                                                 src={food.img}
-                                                className="card-img-left"
+                                                className="card-img-left-css"
                                                 alt={food.name}
                                             />
-                                            <div className="card-body">
-                                                <h5 className="card-title">{food.name}</h5>
+                                            <div className="card-body-css">
+                                                <h5 className="card-title-css">{food.name}</h5>
                                             </div>
                                         </div>
                                     </div>
                                 ))}
-                                {/* Duplicate items for continuous animation */}
-                                {nonveg.map((food) => (
-                                    <div key={`dup-${food.id}`} className="card-item">
-                                        <div className="food-card">
-                                            <img
-                                                src={food.img}
-                                                className="card-img-left"
-                                                alt={food.name}
-                                            />
-                                            <div className="card-body">
-                                                <h5 className="card-title">{food.name}</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
+                               
                             </div>
                         </div>
                     </div>
