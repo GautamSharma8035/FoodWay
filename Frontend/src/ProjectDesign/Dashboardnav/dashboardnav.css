@@ -1,7 +1,7 @@
 /* Keep previous styles */
 .hover-effect:hover {
-    color: blue;
-    border-bottom: 2px solid blue;
+    color: rgb(81, 5, 163);
+    
 }
 
 .hover-effect {
@@ -18,7 +18,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: blue;
+    background-color: rgb(81, 5, 163);
     transition: width 0.3s ease;
 }
 

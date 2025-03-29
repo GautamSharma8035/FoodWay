@@ -1,41 +1,81 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import "./Login.css";
-import India from '../../images/india.jpg';
 import { useNavigate } from "react-router-dom";
-
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 const Login = () => {
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
     
-      const redirectsignup = () => {
-        Navigate('/signup');
-      };
+    const redirectsignup = () => {
+        navigate('/signup');
+    };
+
+    useEffect(() => {
+       
+        const map = L.map('india-map', {
+            zoomControl: false, 
+            dragging: false,   
+            touchZoom: false,  
+            scrollWheelZoom: false, 
+            doubleClickZoom: false, 
+            boxZoom: false,     
+            tap: false,     
+            attributionControl: false
+        }).setView([23.5, 80.5], 10);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        // Add marker for Indore
+        const indoreMarker = L.marker([22.7196, 75.8577]).addTo(map);
+        indoreMarker.bindPopup("<b>Indore</b>").openPopup();
+
+        // Set exact boundaries for India to show only India
+        const indiaBounds = L.latLngBounds(
+            L.latLng(6.7, 68.1), 
+            L.latLng(37.0, 97.4)  
+        );
+        map.fitBounds(indiaBounds);
+      
+        map.setMaxBounds(indiaBounds);
+
+   
+        return () => {
+            map.remove();
+        };
+    }, []);
+
     return (
-        <Container fluid className="d-flex flex-column flex-md-row align-items-center justify-content-center gap-5">
-
-            <Col md={6} className="position-relative d-none d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block d-500-none">
-                <img src={India} className="w-100 img-fluid " alt="India Map" />
-                <div className="position-absolute" style={{ top: "52%", left: "35%", transform: "translate(-50%, -50%)", textAlign: "center" }}>
-                    <div style={{ width: "12px", height: "12px", backgroundColor: "rgb(95, 6, 190)", borderRadius: "50%", display: "inline-block" }}></div>
-                    <div style={{ fontSize: "14px", fontWeight: "bold", color: "black", marginTop: "5px" }}>Indore</div>
-                </div>
-
+        <Container fluid className="d-flex flex-column flex-md-row align-items-center justify-content-center px-3 py-3">
+          
+            <Col md={5} className="position-relative d-none d-sm-block d-md-block mb-md-0 mb-4 mt-5">
+                <div id="india-map" style={{ 
+                    height: "600px", 
+                    width: "100%", 
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                }}></div>
                 <div className="position-absolute" style={{
-                    top: "80%", left: "75%", transform: "translate(-50%, -50%)",
-                    textAlign: "center", color: "white", fontWeight: "bold",
-                    padding: "10px", borderRadius: "8px"
+                    bottom: "10px", right: "10px",
+                    textAlign: "center", backgroundColor: "rgba(255,255,255,0.8)",
+                    padding: "8px", borderRadius: "8px"
                 }}>
-                    <div style={{ width: "12px", height: "12px", backgroundColor: "rgb(95, 6, 190)", borderRadius: "50%", display: "inline-block" }}></div>
-                    <p style={{ margin: 0 }} className="p-css">Currently we are here</p>
-                    <p style={{ margin: 0, fontSize: "12px" }} className="p-css">(Target: All over India)</p>
+               
+                    
                 </div>
             </Col>
 
-            <Col xs={12} md={6} className="login-page">
-                <Container className="login-container p-5">
+        
+            <Col md={1}></Col>
+
+          
+            <Col xs={12} md={5} className="login-page mt-5">
+                <Container className="login-container p-4 p-md-5">
                     <Row className="justify-content-center">
-                        <Col xs={12} sm={8} md={6} lg={5} className="login-box ">
+                        <Col xs={12} sm={10} lg={9} className="login-box">
                             <h2 className="text-center h2-css">Welcome to FoodWay-Partner</h2>
                             <p className="text-center mb-4 p-css">Login with your credential to start selling</p>
 
@@ -52,17 +92,17 @@ const Login = () => {
                                     </button>
                                 </div>
 
-                                {/* OTP Input */}
+                              
                                 <Form.Group className="mb-3">
                                     <Form.Label>OTP*</Form.Label>
                                     <Form.Control type="text" placeholder="Enter OTP" />
                                 </Form.Group>
 
-                                {/* Login Button */}
+                            
                                 <Button className="btn-purple-css w-100" type="button">Login</Button>
                                 <div className="text-center mt-3">
                                     <span>Don't have an account? </span>
-                                    <a href="" className="text-primary" onClick={redirectsignup}>Register</a>
+                                    <a href="#" className="text-primary" onClick={redirectsignup}>Register</a>
                                 </div>
                             </Form>
                         </Col>

@@ -46,6 +46,7 @@ body{
   }
   .bg-blue-css{
     background-color: rgba(0,0,255,0.10);
+    color: rgb(81, 5, 163);
     
   }
   .card-hover {
@@ -201,4 +202,18 @@ body{
       font-size: 0.8rem;
     }
   }
+ 
+
+  @media (max-width: 780px) {
+  
+    .sidenav-container.open {
+      left: 0; /* Show the sidenav */
+    }
+  
+    .main-content {
+      margin-left: 70px !important; /* Prevent shifting */
+      width: calc(100% - 70px) !important;
+    }
+  }
+  
   

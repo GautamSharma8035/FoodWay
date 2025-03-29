@@ -16,7 +16,7 @@ function Dashboardnav() {
             <div className=" d-md-flex gap-3">
                 <a href="#" className="text-decoration-none fw-bold hover-effect m-1">About</a>
                 <a href="#" className="text-decoration-none fw-bold hover-effect m-1">Tools</a>
-                <a href="#" className="text-decoration-none fw-bold hover-effect m-1">Help</a>
+                <a href="/contact" className="text-decoration-none fw-bold hover-effect m-1">Help</a>
             </div>
 
             {/* Icons */}

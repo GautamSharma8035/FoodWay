@@ -15,10 +15,10 @@ import DashboardFooter from '../Footer/Dashboardfooter';
 function Dashboard() {
   const [selectButton, setSelectButton] = useState("monthly");
   const cards = [
-    { icon: <FaUtensils size={30} />, value: "0", label: "Total Menus", change: "0% (30 days)", color: "primary" },
-    { icon: <FaRupeeSign />, value: "0", label: "Total Revenue", change: "0% (30 days)", color: "primary" },
-    { icon: <FaClipboardList />, value: "0", label: "Total Orders", change: "0% (30 days)", color: "primary" },
-    { icon: <FaUsers />, value: "0", label: "Total Customers", change: "0% (30 days)", color: "primary" }
+    { icon: <FaUtensils size={30} />, value: "0", label: "Total Menus", change: "0% (30 days)",  },
+    { icon: <FaRupeeSign />, value: "0", label: "Total Revenue", change: "0% (30 days)",  },
+    { icon: <FaClipboardList />, value: "0", label: "Total Orders", change: "0% (30 days)",  },
+    { icon: <FaUsers />, value: "0", label: "Total Customers", change: "0% (30 days)",  }
   ];
   const [isSidenavOpen, setIsSidenavOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
@@ -44,14 +44,23 @@ function Dashboard() {
   const handleCardClick = (index) => {
     setSelectedCard(index);
   };
+  const toggleSidenav = () => {
+    if (window.innerWidth < 780) {
+      setIsSidenavOpen(!isSidenavOpen);
+    }
+  };
+  
 
   return (
     <>
       <div className='container-fluid mb-5'>
-        <div className="dashboard-wrapper">
+        <div className="dashboard-wrapper ">
+          
           <Sidenav
             isOpen={isSidenavOpen}
             setIsOpen={setIsSidenavOpen}
+            functionUse={toggleSidenav}
+            className={`sidenav-container ${isSidenavOpen ? 'open' : ''}`} 
           />
           <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''}`}>
             <Dashboardnav />
@@ -60,7 +69,7 @@ function Dashboard() {
           <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} mb-5`}>
             <div className='container mt-5'>
               <h3>Dashboard</h3>
-              <p>Welcome, Restaurent Name</p>
+              <p>Welcome, Restaurant Name</p>
             </div>
             <div className='container'>
 
@@ -74,7 +83,7 @@ function Dashboard() {
                       role="button"
                       style={{ cursor: 'pointer' }}
                     >
-                      <div className={`p-3 rounded-circle bg-blue-css text-${card.color} fs-3 ms-2`}>
+                      <div className={`p-3 rounded-circle bg-blue-css  fs-3 ms-2`}>
                         {card.icon}
                       </div>
                       <div className="ms-5">

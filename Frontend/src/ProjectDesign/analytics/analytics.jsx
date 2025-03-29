@@ -93,178 +93,180 @@ const Analytics = () => {
           <Dashboardnav />
         </div>
 
-<div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} mt-4 d-flex flex-wrap justify-content-center align-items-start`}> 
- 
-  <div className="analytics-card mt-2 col-12 col-md-6 d-flex flex-column shadow-sm" >
-    <h5 className="analytics-title">Order Analytics</h5>
-    <div className="d-flex flex-column flex-md-row justify-content-between w-100">
-      <div className="d-flex flex-row flex-wrap w-100 gap-3 mb-3 mb-md-0 justify-content-center justify-content-md-start">
-        <div>
-          <strong>0</strong><br />
-          <p className="mb-0">Total Sales</p>
-        </div>
-        <div>
-          <strong>0</strong><br />
-          <p className="mb-0">Avg Sales per day</p>
-        </div>
-      </div>
-      <div className="bg-light rounded-pill text-center d-flex flex-wrap justify-content-center p-1">
-        <button className={`btn btn-sm rounded-pill ${selectButton === "monthly" ? "btn-selected" : "btn-unselected"}`} onClick={() => setSelectButton("monthly")}>
-          Monthly
-        </button>
-        <button className={`btn btn-sm rounded-pill ${selectButton === "weekly" ? "btn-selected" : "btn-unselected"}`} onClick={() => setSelectButton("weekly")}>
-          Weekly
-        </button>
-        <button className={`btn btn-sm rounded-pill ${selectButton === "today" ? "btn-selected" : "btn-unselected"}`} onClick={() => setSelectButton("today")}>
-          Today
-        </button>
-      </div>
-    </div>
-    <div style={{ height: "300px" }}>
-      <Line data={chartData} options={chartOptions} />
-    </div>
-  </div>
-  <div className="analytics-card mt-2 col-12 col-md-6 d-flex flex-column shadow-sm">
-    <h5 className="analytics-title">Most Ordered Items</h5>
-    <ul className="list-group">
-      {mostOrderedItems.map((item, index) => (
-        <motion.li
-          key={index}
-          className="list-group-item d-flex align-items-center p-2 p-md-3"
-          style={{ borderRadius: "10px", cursor: "pointer" }}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.2 }}
-        >
-          <span className="badge me-2 me-md-3" style={{ fontSize: "0.9rem", padding: "8px 12px", borderRadius: "50%", backgroundColor: "rgb(81, 5, 163)" }}>{index + 1}</span>
-          <img src={item.image} alt={item.name} className="item-image me-2 me-md-3" style={{ width: "50px", height: "50px", borderRadius: "10px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }} />
-          <div>
-            <strong style={{ fontSize: "1rem" }}>{item.name}</strong><br />
-            <span className="text-muted" style={{ fontSize: "0.85rem" }}>Ordered {item.orders} times</span>
-          </div>
-        </motion.li>
-      ))}
-    </ul>
-  </div>
-</div>
+        <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} mt-4 d-flex flex-wrap justify-content-center align-items-start`}>
 
-    
-        <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''}`}>
-          <div className="d-flex ">
-            <div className="analytics-card w-50 mt-3 mb-3 shadow-sm">
-              <h5 className="analytics-title">Most Favorite Dishes</h5>
-              <div className="food-grid-container">
-                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4">
-          
-                  {fastFoodItems.slice(0, 10).map((item, index) => (
-                    <motion.div
-                      key={index}
-                      className="col"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <div className="food-card">
-                        <div className="food-card-image">
-                          <img src={item.image} alt={item.name} />
-                        </div>
-                        <div className="food-card-content">
-                          <h6>{item.name}</h6>
-                          <span className="category-badge">{item.category}</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                  {fastFoodItems.slice(10, 15).map((item, index) => (
-                    <motion.div
-                      key={index + 8}
-                      className="col"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: (index + 8) * 0.1 }}
-                    >
-                      <div className={`food-card ${!showAll ? 'blurred' : ''}`}>
-                        <div className="food-card-image">
-                          <img src={item.image} alt={item.name} />
-                        </div>
-                        <div className="food-card-content">
-                          <h6>{item.name}</h6>
-                          <span className="category-badge">{item.category}</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-
-
-                  {showAll && fastFoodItems.slice(15, 20).map((item, index) => (
-                    <motion.div
-                      key={index + 12}
-                      className="col"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: (index + 12) * 0.1 }}
-                    >
-                      <div className="food-card">
-                        <div className="food-card-image">
-                          <img src={item.image} alt={item.name} />
-                        </div>
-                        <div className="food-card-content">
-                          <h6>{item.name}</h6>
-                          <span className="category-badge">{item.category}</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
+          <div className="analytics-card mt-2 col-12 col-md-6 d-flex flex-column shadow-sm" >
+            <h5 className="analytics-title">Order Analytics</h5>
+            <div className="d-flex flex-column flex-md-row justify-content-between w-100">
+              <div className="d-flex flex-row flex-wrap w-100 gap-3 mb-3 mb-md-0 justify-content-center justify-content-md-start">
+                <div>
+                  <strong>0</strong><br />
+                  <p className="mb-0">Total Sales</p>
                 </div>
-                {!showAll && (
-                  <div
-                    className="show-more-overlay"
-                    onClick={() => setShowAll(true)}
-                  >
-                    <span>Show More Items</span>
-                  </div>
-                )}
+                <div>
+                  <strong>0</strong><br />
+                  <p className="mb-0">Avg Sales per day</p>
+                </div>
+              </div>
+              <div className="bg-light rounded-pill text-center d-flex flex-wrap justify-content-center p-1">
+                <button className={`btn btn-sm rounded-pill ${selectButton === "monthly" ? "btn-selected" : "btn-unselected"}`} onClick={() => setSelectButton("monthly")}>
+                  Monthly
+                </button>
+                <button className={`btn btn-sm rounded-pill ${selectButton === "weekly" ? "btn-selected" : "btn-unselected"}`} onClick={() => setSelectButton("weekly")}>
+                  Weekly
+                </button>
+                <button className={`btn btn-sm rounded-pill ${selectButton === "today" ? "btn-selected" : "btn-unselected"}`} onClick={() => setSelectButton("today")}>
+                  Today
+                </button>
               </div>
             </div>
-
-            {showAll && (
-              <div className="analytics-card w-50 mt-3 mb-3 shadow-sm">
-                <h5 className="analytics-title">Most Favorite Dishes</h5>
-                <div className="food-grid-container">
-                  <div className="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4">
-                    {fastFoodItems.slice(20).map((item, index) => (
-                      <motion.div
-                        key={index + 20}
-                        className="col"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                      >
-                        <div className="food-card">
-                          <div className="food-card-image">
-                            <img src={item.image} alt={item.name} />
-                          </div>
-                          <div className="food-card-content">
-                            <h6>{item.name}</h6>
-                            <span className="category-badge">{item.category}</span>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
+            <div style={{ height: "300px" }}>
+              <Line data={chartData} options={chartOptions} />
+            </div>
+          </div>
+          <div className="analytics-card mt-2 col-12 col-md-6 d-flex flex-column shadow-sm">
+            <h5 className="analytics-title">Most Ordered Items</h5>
+            <ul className="list-group">
+              {mostOrderedItems.map((item, index) => (
+                <motion.li
+                  key={index}
+                  className="list-group-item d-flex align-items-center p-2 p-md-3"
+                  style={{ borderRadius: "10px", cursor: "pointer" }}
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                >
+                  <span className="badge me-2 me-md-3" style={{ fontSize: "0.9rem", padding: "8px 12px", borderRadius: "50%", backgroundColor: "rgb(81, 5, 163)" }}>{index + 1}</span>
+                  <img src={item.image} alt={item.name} className="item-image me-2 me-md-3" style={{ width: "50px", height: "50px", borderRadius: "10px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }} />
+                  <div>
+                    <strong style={{ fontSize: "1rem" }}>{item.name}</strong><br />
+                    <span className="text-muted" style={{ fontSize: "0.85rem" }}>Ordered {item.orders} times</span>
                   </div>
-                </div>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''}`}>
+  <div className="container-fluid px-0">
+    <div className="row gx-3">
+      <div className="col-12 col-lg-6 mt-3 mb-3">
+        <div className="analytics-card shadow-sm food-grid-responsive">
+          <h5 className="analytics-title">Most Favorite Dishes</h5>
+          <div className="food-grid-container">
+            <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-2 g-md-3">
+              {fastFoodItems.slice(0, 10).map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="col"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <div className="food-card">
+                    <div className="food-card-image">
+                      <img src={item.image} alt={item.name} className="img-fluid" />
+                    </div>
+                    <div className="food-card-content">
+                      <h6 className="text-truncate">{item.name}</h6>
+                      <span className="category-badge">{item.category}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+              {fastFoodItems.slice(10, 15).map((item, index) => (
+                <motion.div
+                  key={index + 8}
+                  className="col"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: (index + 8) * 0.1 }}
+                >
+                  <div className={`food-card ${!showAll ? 'blurred' : ''}`}>
+                    <div className="food-card-image">
+                      <img src={item.image} alt={item.name} className="img-fluid" />
+                    </div>
+                    <div className="food-card-content">
+                      <h6 className="text-truncate">{item.name}</h6>
+                      <span className="category-badge">{item.category}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+
+              {showAll && fastFoodItems.slice(15, 20).map((item, index) => (
+                <motion.div
+                  key={index + 12}
+                  className="col"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: (index + 12) * 0.1 }}
+                >
+                  <div className="food-card">
+                    <div className="food-card-image">
+                      <img src={item.image} alt={item.name} className="img-fluid" />
+                    </div>
+                    <div className="food-card-content">
+                      <h6 className="text-truncate">{item.name}</h6>
+                      <span className="category-badge">{item.category}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            {!showAll && (
+              <div
+                className="show-more-overlay"
+                onClick={() => setShowAll(true)}
+              >
+                <span>Show More Items</span>
               </div>
             )}
           </div>
         </div>
-
       </div>
 
-      <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''}`}>
-        <DashboardFooter />
-      </div>
-    </>
-  );
+      {showAll && (
+        <div className="col-12 col-lg-6 mt-3 mb-3">
+          <div className="analytics-card shadow-sm food-grid-responsive">
+            <h5 className="analytics-title">Most Favorite Dishes</h5>
+            <div className="food-grid-container">
+              <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-2 g-md-3">
+                {fastFoodItems.slice(20).map((item, index) => (
+                  <motion.div
+                    key={index + 20}
+                    className="col"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div className="food-card">
+                      <div className="food-card-image">
+                        <img src={item.image} alt={item.name} className="img-fluid" />
+                      </div>
+                      <div className="food-card-content">
+                        <h6 className="text-truncate">{item.name}</h6>
+                        <span className="category-badge">{item.category}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+        </div>
+
+        <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''}`}>
+          <DashboardFooter />
+        </div>
+      </>
+      );
 };
 
-export default Analytics;
+      export default Analytics;

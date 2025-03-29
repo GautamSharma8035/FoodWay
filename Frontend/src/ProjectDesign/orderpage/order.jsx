@@ -27,7 +27,7 @@ const OrderPage = () => {
       case "New Order":
         return "bg-danger";
       case "On Delivery":
-        return "bg-primary";
+        return "bg-success";
       default:
         return "bg-success";
     }

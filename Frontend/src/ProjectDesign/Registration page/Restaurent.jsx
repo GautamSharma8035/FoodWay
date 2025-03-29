@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { FaUser,FaCity,FaGlobe,FaHashtag, FaMapMarkerAlt, FaCalendar, FaImage, FaPhone, FaBuilding, FaIdCard, FaVenusMars, FaUtensils, FaReceipt, FaFileAlt } from "react-icons/fa";
+import { FaUser, FaCity, FaGlobe, FaHashtag, FaMapMarkerAlt, FaCalendar, FaImage, FaPhone, FaBuilding, FaIdCard, FaVenusMars, FaUtensils, FaReceipt, FaFileAlt, FaCreditCard, FaUniversity, FaBarcode } from "react-icons/fa";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 
 const fileTypes = ["image/jpeg", "image/jpg", "image/png", "application/pdf"];
 
-export function Personal({SetActiveState   , handleNext}) {
-    
+export function Personal({ SetActiveState, handleNext }) {
+
     const [formData, setFormData] = useState({
         fullName: "",
         address: "",
@@ -52,10 +52,10 @@ export function Personal({SetActiveState   , handleNext}) {
         }
     };
 
-   
+
 
     return (
-        <div className="d-flex justify-content-center align-items-center " style={{width:"69.50%"}}>
+        <div className="d-flex justify-content-center align-items-center " style={{ width: "69.50%" }}>
             <div className="signup-card p-4 w-100">
                 {/* <h5 className="text-start mb-3">Personal Details</h5> */}
                 <form onSubmit={handleSubmit}>
@@ -92,7 +92,7 @@ export function Personal({SetActiveState   , handleNext}) {
                         {errors.image && <small className="text-danger">{errors.image}</small>}
                     </div>
                     <div className="d-flex justify-content-end">
-                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }}>Next <MdNavigateNext size={25}/></button>
+                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }}>Next <MdNavigateNext size={25} /></button>
                     </div>
                 </form>
             </div>
@@ -100,9 +100,7 @@ export function Personal({SetActiveState   , handleNext}) {
     );
 }
 
-
-
-export function Restaurent({SetActiveState  , handleNext}) {
+export function Restaurent({ SetActiveState, handleNext }) {
     const [restaurantFormData, setRestaurantFormData] = useState({
         restaurantName: "",
         contactNumber: "",
@@ -110,7 +108,11 @@ export function Restaurent({SetActiveState  , handleNext}) {
         address: "",
         state: "",
         city: "",
-        pincode: ""
+        pincode: "",
+        accountHolderName: "",
+        accountNumber: "",
+        ifscCode: "",
+        bankName: ""
     });
 
     const [errors, setErrors] = useState({});
@@ -145,6 +147,19 @@ export function Restaurent({SetActiveState  , handleNext}) {
         }
         if (!restaurantFormData.pincode.match(/^[0-9]{6}$/)) {
             newErrors.pincode = "Enter a valid 6-digit pincode!";
+        }
+        // Validations for bank account details
+        if (!restaurantFormData.accountHolderName.trim()) {
+            newErrors.accountHolderName = "Account holder name is required!";
+        }
+        if (!restaurantFormData.accountNumber.trim()) {
+            newErrors.accountNumber = "Account number is required!";
+        }
+        if (!restaurantFormData.ifscCode.trim()) {
+            newErrors.ifscCode = "IFSC code is required!";
+        }
+        if (!restaurantFormData.bankName.trim()) {
+            newErrors.bankName = "Bank name is required!";
         }
 
         if (Object.keys(newErrors).length > 0) {
@@ -206,7 +221,7 @@ export function Restaurent({SetActiveState  , handleNext}) {
                         <label className="form-label"><FaMapMarkerAlt /> Restaurant Address</label>
                         <input
                             type="text"
-                           className="form-control handle-placeholder"
+                            className="form-control handle-placeholder"
                             placeholder="Restaurant Address"
                             name="address"
                             value={restaurantFormData.address}
@@ -217,27 +232,29 @@ export function Restaurent({SetActiveState  , handleNext}) {
 
                     <div className="mb-3">
                         <label className="form-label"><FaGlobe /> State</label>
-                        <input
-                            type="text"
-                            className="form-control handle-placeholder"
-                            placeholder="Madhya Pradesh...etc"
+                        <select
+                            className="form-select handle-placeholder"
                             name="state"
                             value={restaurantFormData.state}
                             onChange={handleChange}
-                        />
+                        >
+                            <option value="" hidden>Select...</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        </select>
                         {errors.state && <small className="text-danger">{errors.state}</small>}
                     </div>
 
                     <div className="mb-3">
                         <label className="form-label"><FaCity /> City</label>
-                        <input
-                            type="text"
-                            className="form-control handle-placeholder"
-                            placeholder="Indore,Ujjain.....etc"
+                        <select
+                            className="form-select handle-placeholder"
                             name="city"
                             value={restaurantFormData.city}
                             onChange={handleChange}
-                        />
+                        >
+                            <option value="" hidden>Select...</option>
+                            <option value="Indore">Indore</option>
+                        </select>
                         {errors.city && <small className="text-danger">{errors.city}</small>}
                     </div>
 
@@ -245,7 +262,7 @@ export function Restaurent({SetActiveState  , handleNext}) {
                         <label className="form-label"><FaHashtag /> Pincode</label>
                         <input
                             type="text"
-                           className="form-control handle-placeholder"
+                            className="form-control handle-placeholder"
                             placeholder="452005,452...etc"
                             name="pincode"
                             value={restaurantFormData.pincode}
@@ -254,10 +271,63 @@ export function Restaurent({SetActiveState  , handleNext}) {
                         {errors.pincode && <small className="text-danger">{errors.pincode}</small>}
                     </div>
 
+                    {/* Bank Account Details */}
+                    <div className="mb-3">
+                        <label className="form-label"><FaUser /> Account Holder Name</label>
+                        <input
+                            type="text"
+                            className="form-control handle-placeholder"
+                            placeholder="Enter Account Holder Name"
+                            name="accountHolderName"
+                            value={restaurantFormData.accountHolderName}
+                            onChange={handleChange}
+                        />
+                        {errors.accountHolderName && <small className="text-danger">{errors.accountHolderName}</small>}
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label"><FaCreditCard /> Bank Account Number</label>
+                        <input
+                            type="text"
+                            className="form-control handle-placeholder"
+                            placeholder="Enter Bank Account Number"
+                            name="accountNumber"
+                            value={restaurantFormData.accountNumber}
+                            onChange={handleChange}
+                        />
+                        {errors.accountNumber && <small className="text-danger">{errors.accountNumber}</small>}
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label"><FaUniversity /> Bank Name</label>
+                        <input
+                            type="text"
+                            className="form-control handle-placeholder"
+                            placeholder="Enter Bank Name"
+                            name="bankName"
+                            value={restaurantFormData.bankName}
+                            onChange={handleChange}
+                        />
+                        {errors.bankName && <small className="text-danger">{errors.bankName}</small>}
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label"><FaBarcode /> IFSC Code</label>
+                        <input
+                            type="text"
+                            className="form-control handle-placeholder"
+                            placeholder="Enter IFSC Code"
+                            name="ifscCode"
+                            value={restaurantFormData.ifscCode}
+                            onChange={handleChange}
+                        />
+                        {errors.ifscCode && <small className="text-danger">{errors.ifscCode}</small>}
+                    </div>
+
                     <div className="d-flex justify-content-between">
-                    <button type="button" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={()=>SetActiveState("personal")}><GrFormPrevious size={25}/> Previous</button>
-                        <button type="submit" className="btn text-light"  style={{ backgroundColor: "rgb(81, 5, 163)" }}>Next <MdNavigateNext size={25}/></button>
-                        
+                        <button type="button" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={() => SetActiveState("personal")}><GrFormPrevious size={25} /> Previous</button>
+                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }}>Next <MdNavigateNext size={25} /></button>
+
                     </div>
                 </form>
             </div>
@@ -266,7 +336,7 @@ export function Restaurent({SetActiveState  , handleNext}) {
 }
 
 
-export function Documentation({SetActiveState , handleNext}) {
+export function Documentation({ SetActiveState, handleNext }) {
     const [documentFormData, setDocumentFormData] = useState({
         aadharCard: null,
         panCard: null,
@@ -282,7 +352,7 @@ export function Documentation({SetActiveState , handleNext}) {
             ...documentFormData,
             [name]: type === "file" ? files[0] : value
         });
-        setErrors({ ...errors, [name]: "" }); 
+        setErrors({ ...errors, [name]: "" });
     };
 
     const validateGST = (gst) => {
@@ -357,7 +427,7 @@ export function Documentation({SetActiveState , handleNext}) {
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label"><FaFileAlt /> Food Licence</label>
+                        <label className="form-label"><FaFileAlt /> FSSAI/Food Licence</label>
                         <input
                             type="file"
                             className="form-control"
@@ -368,9 +438,9 @@ export function Documentation({SetActiveState , handleNext}) {
                     </div>
 
                     <div className="d-flex justify-content-between">
-                    <button type="text" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={()=>SetActiveState("Restaurent")}><GrFormPrevious size={25}/> Previous</button>
-                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }}>Register <MdNavigateNext size={25}/></button>
-                       
+                        <button type="text" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }} onClick={() => SetActiveState("Restaurent")}><GrFormPrevious size={25} /> Previous</button>
+                        <button type="submit" className="btn text-light" style={{ backgroundColor: "rgb(81, 5, 163)" }}>Register <MdNavigateNext size={25} /></button>
+
                     </div>
                 </form>
             </div>
