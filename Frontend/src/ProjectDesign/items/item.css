@@ -1,45 +1,66 @@
+/* Responsive title */
+.responsive-title {
+    font-family: "algerian", sans-serif;
+    font-size: 40px;
+}
 
+.title-accent {
+    color: rgb(81, 5, 163);
+}
+
+/* Menu container */
+.menu-container {
+    width: 100%;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+}
+
+.menu-section {
+    margin-bottom: 20px;
+}
+
+.menu-section-title {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Animation keyframes */
 @keyframes move-left-right {
     0% {
-        transform: translateX(50%); 
+        transform: translateX(0);
     }
     25% {
-        transform: translateX(0); 
+        transform: translateX(-50%);
     }
-    50% {
-        transform: translateX(-50%); 
+    50%{
+        transform: translatex(0)
     }
-    75% {
-        transform: translateX(0); 
-    }
-    100% {
-        transform: translateX(50%); 
+    100%{
+        transform: translatex(50%);
     }
 }
 
 @keyframes move-right-left {
     0% {
-        transform: translateX(-50%); 
+        transform: translateX(0);
     }
     25% {
-        transform: translateX(0); 
+        transform: translateX(50%);
     }
-    50% {
-        transform: translateX(50%); 
+    50%{
+        transform: translatex(0)
     }
-    75% {
-        transform: translateX(0); 
-    }
-    100% {
-        transform: translateX(-50%); 
+    100%{
+        transform: translatex(-50%);
     }
 }
 
-
+/* Card containers with animations */
 .card-container, .card-container-nonveg, .card-container-veg {
     display: flex;
-    flex-wrap: nowrap; 
-    overflow: hidden; 
+    flex-wrap: nowrap;
     width: 100%;
 }
 
@@ -55,46 +76,98 @@
     animation: move-left-right 60s linear infinite;
 }
 
-
-.card-item {
+/* Card items */
+.card-item-css {
     flex-shrink: 0;
-    width: 20%; 
-    display: flex;
-    justify-content: center;
-  
-}
-
-
-.card {
-    border-radius: 15px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+    padding: 10px;
+    width: 250px;
     
 }
 
+.food-card-css {
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    height: 100%;
+}
 
-.card-img-left {
-    width: 100px;
-    height: 100px;
+.card-img-left-css {
+    margin: auto;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border-radius: 15px;
 }
 
-
-.card-body {
+.card-body-css {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 15px; 
-    text-align: left; 
+    padding-left: 15px;
+    text-align: left;
+    flex: 1;
 }
 
-
-.card-title {
+.card-title-css {
     font-size: 20px;
     font-weight: bold;
     margin: 0;
-    word-wrap: break-word;
+    word-break: break-word;
+    
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .responsive-title {
+        font-size: 30px;
+    }
+    
+    .card-item-css {
+        width: 200px;
+    }
+    
+    .card-img-left-css {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .card-title-css {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .responsive-title {
+        font-size: 24px;
+    }
+    
+    .card-item-css {
+        width: 160px;
+    }
+    
+    .card-img-left-css {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .card-title-css {
+        font-size: 14px;
+    }
+    
+    .menu-container {
+        padding: 10px;
+    }
+}
+
+/* Pause animation on hover for better accessibility */
+@media (hover: hover) {
+    .card-container:hover,
+    .card-container-veg:hover,
+    .card-container-nonveg:hover {
+        animation-play-state: paused;
+        
+    }
 }

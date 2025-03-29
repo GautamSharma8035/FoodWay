@@ -10,6 +10,8 @@ import Login from "./ProjectDesign/Login/Login";
 import Analytics from "./ProjectDesign/analytics/analytics";
 import Details from "./ProjectDesign/Registration page/Details";
 
+import ContactUs from "./ProjectDesign/Contact us/contact";
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/details" element={<Details/>} />
+        <Route path="/contact" element={<ContactUs/>} />
       </Routes>
     </Router>
   );

@@ -27,13 +27,18 @@ const Analytics = () => {
     ],
   };
 
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+  };
+
   const mostOrderedItems = [
     { name: "Pizza", image: "https://img.freepik.com/free-psd/deliciously-appealing-margherita-pizza-transparent-background_84443-26494.jpg", orders: 120 },
     { name: "Burger", image: "https://www.thespruceeats.com/thmb/UpVWAcHnFEe_KvQpYsR1a7U-WY0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-your-best-grilled-burger-recipe-7511041-hero-C-c5080fa5f97c4c2b908968527f8a851b.jpg", orders: 95 },
     { name: "Pasta", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs2paowiODEqEOJ082fLEWgrlBjvBlGd2GrQ&s", orders: 80 },
     { name: "Sushi", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbfV7iV6CZBb5VR_92P5pFHdcbtsNv8ABAKg&s", orders: 70 },
     { name: "Manchurian Rice", image: "https://i.ytimg.com/vi/KSmI5jkBQFw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBVtVwABG9fQh25iJ0KHIIxxgAvpQ", orders: 65 },
-    { name: "Tacos", image: "https://img.freepik.com/free-psd/delicious-beef-taco-transparent-background_84443-25440.jpg", orders: 60 }
+
   ];
 
 
@@ -43,12 +48,12 @@ const Analytics = () => {
     { name: "Pasta", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs2paowiODEqEOJ082fLEWgrlBjvBlGd2GrQ&s", category: "Italian" },
     { name: "Sushi", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbfV7iV6CZBb5VR_92P5pFHdcbtsNv8ABAKg&s", category: "Japanese" },
     { name: "Tacos", image: "https://img.freepik.com/free-psd/delicious-beef-taco-transparent-background_84443-25440.jpg", category: "Mexican" },
-    { name: "Manchurian", image: "https://i.ytimg.com/vi/KSmI5jkBQFw/hq720.jpg", category: "Indo-Chinese" },
+    { name: "Manchurian", image: "https://i.ytimg.com/vi/KSmI5jkBQFw/hq720.jpg", category: "Chinese" },
     { name: "Noodles", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVPvcZIxeA9bZukK18CymY32OqFUTVbkKXgQ&s", category: "Asian" },
     { name: "Momos", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Ov0avG_NB5JaZFODBWmCC2noq-uoZGJ0Mw&s", category: "Asian" },
     { name: "Veg Biryani", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3EvnBGFTYZrXBUU4sahNk6YQVLZ3jrlR-4g&s", category: "Indian" },
     { name: "Paneer Tikka", image: "https://www.cookwithmanali.com/wp-content/uploads/2015/07/Restaurant-Style-Recipe-Paneer-Tikka-500x500.jpg", category: "Indian" },
-    { name: "Falafel", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY9Ua9PRuTbR3t-pSWkYQg_qCYKmrBxKW80g&s", category: "Middle Eastern" },
+    { name: "Falafel", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY9Ua9PRuTbR3t-pSWkYQg_qCYKmrBxKW80g&s", category: "Eastern" },
     { name: "Spring Roll", image: "https://d1mxd7n691o8sz.cloudfront.net/static/recipe/recipe/2023-12/Vegetable-Spring-Rolls-2-1-906001560ca545c8bc72baf473f230b4.jpg", category: "Chinese" },
     { name: "Dosa", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-glTW9VpM8O7nW1los6X5F9VkIOaj07rgw&s", category: "Indian" },
     { name: "French Fries", image: "https://www.awesomecuisine.com/wp-content/uploads/2009/05/french-fries-500x500.jpg", category: "American" },
@@ -80,8 +85,6 @@ const Analytics = () => {
     { name: "Litti Chokha", image: "https://static.toiimg.com/thumb/53188495.cms?width=1200&height=900", category: "Indian" },
   ];
 
-
-
   return (
     <>
       <div className="dashboard-wrapper">
@@ -90,188 +93,180 @@ const Analytics = () => {
           <Dashboardnav />
         </div>
 
-        <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} mt-4 d-flex`}>
-          {/* Order Analytics Card */}
-          <div className="analytics-card mt-2 w-50 me-3">
+        <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''} mt-4 d-flex flex-wrap justify-content-center align-items-start`}>
+
+          <div className="analytics-card mt-2 col-12 col-md-6 d-flex flex-column shadow-sm" >
             <h5 className="analytics-title">Order Analytics</h5>
-            <div className="d-flex justify-content-between w-100">
-              <div className="d-flex w-50 gap-3">
+            <div className="d-flex flex-column flex-md-row justify-content-between w-100">
+              <div className="d-flex flex-row flex-wrap w-100 gap-3 mb-3 mb-md-0 justify-content-center justify-content-md-start">
                 <div>
                   <strong>0</strong><br />
-                  <p>Total Sales</p>
+                  <p className="mb-0">Total Sales</p>
                 </div>
                 <div>
                   <strong>0</strong><br />
-                  <p>Avg Sales per day</p>
+                  <p className="mb-0">Avg Sales per day</p>
                 </div>
               </div>
-              <div className="bg-light rounded-pill text-center d-flex justify-content-center">
-                <button
-                  className={`btn rounded-pill  ${selectButton === "monthly" ? "btn-selected" : "btn-unselected"}`}
-                  onClick={() => setSelectButton("monthly")}
-                >
+              <div className="bg-light rounded-pill text-center d-flex flex-wrap justify-content-center p-1">
+                <button className={`btn btn-sm rounded-pill ${selectButton === "monthly" ? "btn-selected" : "btn-unselected"}`} onClick={() => setSelectButton("monthly")}>
                   Monthly
                 </button>
-                <button
-                  className={`btn rounded-pill  ${selectButton === "weekly" ? "btn-selected" : "btn-unselected"}`}
-                  onClick={() => setSelectButton("weekly")}
-                >
+                <button className={`btn btn-sm rounded-pill ${selectButton === "weekly" ? "btn-selected" : "btn-unselected"}`} onClick={() => setSelectButton("weekly")}>
                   Weekly
                 </button>
-                <button
-                  className={`btn rounded-pill  ${selectButton === "today" ? "btn-selected" : "btn-unselected"}`}
-                  onClick={() => setSelectButton("today")}
-                >
+                <button className={`btn btn-sm rounded-pill ${selectButton === "today" ? "btn-selected" : "btn-unselected"}`} onClick={() => setSelectButton("today")}>
                   Today
                 </button>
               </div>
             </div>
-            <Line data={chartData} />
+            <div style={{ height: "300px" }}>
+              <Line data={chartData} options={chartOptions} />
+            </div>
           </div>
-          <div className="analytics-card mt-2 w-50">
+          <div className="analytics-card mt-2 col-12 col-md-6 d-flex flex-column shadow-sm">
             <h5 className="analytics-title">Most Ordered Items</h5>
             <ul className="list-group">
               {mostOrderedItems.map((item, index) => (
                 <motion.li
                   key={index}
-                  className="list-group-item d-flex align-items-center p-3"
+                  className="list-group-item d-flex align-items-center p-2 p-md-3"
                   style={{ borderRadius: "10px", cursor: "pointer" }}
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                 >
-                  <span className="badge me-3" style={{ fontSize: "1rem", padding: "10px 15px", borderRadius: "50%", backgroundColor: "rgb(81, 5, 163)" }}>{index + 1}</span>
-                  <img src={item.image} alt={item.name} className="item-image me-3" style={{ width: "60px", height: "60px", borderRadius: "10px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }} />
+                  <span className="badge me-2 me-md-3" style={{ fontSize: "0.9rem", padding: "8px 12px", borderRadius: "50%", backgroundColor: "rgb(81, 5, 163)" }}>{index + 1}</span>
+                  <img src={item.image} alt={item.name} className="item-image me-2 me-md-3" style={{ width: "50px", height: "50px", borderRadius: "10px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }} />
                   <div>
-                    <strong style={{ fontSize: "1.1rem" }}>{item.name}</strong><br />
-                    <span className="text-muted">Ordered {item.orders} times</span>
+                    <strong style={{ fontSize: "1rem" }}>{item.name}</strong><br />
+                    <span className="text-muted" style={{ fontSize: "0.85rem" }}>Ordered {item.orders} times</span>
                   </div>
                 </motion.li>
               ))}
             </ul>
           </div>
         </div>
-        {/* Replace the fastFoodItems section with this: */}
+
         <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''}`}>
-          <div className="d-flex gap-4">
-            {/* First Card */}
-            <div className="analytics-card w-50 mt-3 mb-3">
-              <h5 className="analytics-title">Most Favorite Dishes</h5>
-              <div className="food-grid-container">
-                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                  {/* First 8 cards - always clear */}
-                  {fastFoodItems.slice(0, 8).map((item, index) => (
-                    <motion.div
-                      key={index}
-                      className="col"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <div className="food-card">
-                        <div className="food-card-image">
-                          <img src={item.image} alt={item.name} />
-                        </div>
-                        <div className="food-card-content">
-                          <h6>{item.name}</h6>
-                          <span className="category-badge">{item.category}</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-
-                  {/* Next 4 cards - blurred until show more is clicked */}
-                  {fastFoodItems.slice(8, 12).map((item, index) => (
-                    <motion.div
-                      key={index + 8}
-                      className="col"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: (index + 8) * 0.1 }}
-                    >
-                      <div className={`food-card ${!showAll ? 'blurred' : ''}`}>
-                        <div className="food-card-image">
-                          <img src={item.image} alt={item.name} />
-                        </div>
-                        <div className="food-card-content">
-                          <h6>{item.name}</h6>
-                          <span className="category-badge">{item.category}</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-
-                  {/* Show remaining cards in first section when showAll is true */}
-                  {showAll && fastFoodItems.slice(12, 20).map((item, index) => (
-                    <motion.div
-                      key={index + 12}
-                      className="col"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: (index + 12) * 0.1 }}
-                    >
-                      <div className="food-card">
-                        <div className="food-card-image">
-                          <img src={item.image} alt={item.name} />
-                        </div>
-                        <div className="food-card-content">
-                          <h6>{item.name}</h6>
-                          <span className="category-badge">{item.category}</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-                {!showAll && (
-                  <div
-                    className="show-more-overlay"
-                    onClick={() => setShowAll(true)}
-                  >
-                    <span>Show More Items</span>
+  <div className="container-fluid px-0">
+    <div className="row gx-3">
+      <div className="col-12 col-lg-6 mt-3 mb-3">
+        <div className="analytics-card shadow-sm food-grid-responsive">
+          <h5 className="analytics-title">Most Favorite Dishes</h5>
+          <div className="food-grid-container">
+            <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-2 g-md-3">
+              {fastFoodItems.slice(0, 10).map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="col"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <div className="food-card">
+                    <div className="food-card-image">
+                      <img src={item.image} alt={item.name} className="img-fluid" />
+                    </div>
+                    <div className="food-card-content">
+                      <h6 className="text-truncate">{item.name}</h6>
+                      <span className="category-badge">{item.category}</span>
+                    </div>
                   </div>
-                )}
-              </div>
+                </motion.div>
+              ))}
+              {fastFoodItems.slice(10, 15).map((item, index) => (
+                <motion.div
+                  key={index + 8}
+                  className="col"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: (index + 8) * 0.1 }}
+                >
+                  <div className={`food-card ${!showAll ? 'blurred' : ''}`}>
+                    <div className="food-card-image">
+                      <img src={item.image} alt={item.name} className="img-fluid" />
+                    </div>
+                    <div className="food-card-content">
+                      <h6 className="text-truncate">{item.name}</h6>
+                      <span className="category-badge">{item.category}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+
+              {showAll && fastFoodItems.slice(15, 20).map((item, index) => (
+                <motion.div
+                  key={index + 12}
+                  className="col"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: (index + 12) * 0.1 }}
+                >
+                  <div className="food-card">
+                    <div className="food-card-image">
+                      <img src={item.image} alt={item.name} className="img-fluid" />
+                    </div>
+                    <div className="food-card-content">
+                      <h6 className="text-truncate">{item.name}</h6>
+                      <span className="category-badge">{item.category}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-
-            {/* Second Card - Only shows when showAll is true */}
-            {showAll && (
-              <div className="analytics-card w-50 mt-3 mb-3">
-                <h5 className="analytics-title">Most Favorite Dishes</h5>
-                <div className="food-grid-container">
-                  <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                    {fastFoodItems.slice(20).map((item, index) => (
-                      <motion.div
-                        key={index + 20}
-                        className="col"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                      >
-                        <div className="food-card">
-                          <div className="food-card-image">
-                            <img src={item.image} alt={item.name} />
-                          </div>
-                          <div className="food-card-content">
-                            <h6>{item.name}</h6>
-                            <span className="category-badge">{item.category}</span>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
+            {!showAll && (
+              <div
+                className="show-more-overlay"
+                onClick={() => setShowAll(true)}
+              >
+                <span>Show More Items</span>
               </div>
             )}
           </div>
         </div>
-
       </div>
 
-      <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''}`}>
-        <DashboardFooter />
-      </div>
-    </>
-  );
+      {showAll && (
+        <div className="col-12 col-lg-6 mt-3 mb-3">
+          <div className="analytics-card shadow-sm food-grid-responsive">
+            <h5 className="analytics-title">Most Favorite Dishes</h5>
+            <div className="food-grid-container">
+              <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-2 g-md-3">
+                {fastFoodItems.slice(20).map((item, index) => (
+                  <motion.div
+                    key={index + 20}
+                    className="col"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div className="food-card">
+                      <div className="food-card-image">
+                        <img src={item.image} alt={item.name} className="img-fluid" />
+                      </div>
+                      <div className="food-card-content">
+                        <h6 className="text-truncate">{item.name}</h6>
+                        <span className="category-badge">{item.category}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+        </div>
+
+        <div className={`main-content ${isSidenavOpen ? 'content-shifted' : ''}`}>
+          <DashboardFooter />
+        </div>
+      </>
+      );
 };
 
-export default Analytics;
+      export default Analytics;

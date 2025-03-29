@@ -50,8 +50,8 @@ function OrderTracking() {
                                 <h5 className="timeline-title">Order Progress</h5>
                                 <div className="progress-bar">
                                     {history.map((item, index) => (
-                                        <div key={index} className="progress-step">
-                                            <div className={`progress-dot ${item.completed ? "completed" : "pending"}`}></div>
+                                        <div key={index} className="progress-step d-flex">
+                                            <div className={`progress-dot ${item.completed ? "" : "pending"}`}></div>
                                             <span className="progress-label fw-bold">{item.status}</span>
                                         </div>
                                     ))}

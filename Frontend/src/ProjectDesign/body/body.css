@@ -37,7 +37,7 @@
   .position-css{
     position: relative;
     top:-70px;
-    left:100px;
+    left:200px;
   }
   .shadow-purple{
     box-shadow: 0px 0px 10px purple;
@@ -54,5 +54,40 @@
   .animated-image.visible {
     opacity: 1;
     transform: scale(1);
+  }
+  
+  @media screen and (max-width: 1199px) {
+    .position-css{
+      position: relative;
+      top:-70px;
+      left:150px;
+    }
+    
+  }
+  @media screen and (max-width: 992px) and (min-width: 769px) {
+    .position-css{
+      max-width: 60% !important;
+      top:5px;
+      left: 0px;
+      
+    }
+    
+  }
+
+  
+  /* Mobile view (575px tak) */
+  @media screen and (max-width: 576px) {
+    .food-img {
+      width: 55%;
+      max-width: 250px;
+    }
+  }
+  
+  /* Extra small screens (400px tak) */
+  @media screen and (max-width: 400px) {
+    .food-img {
+      width: 50%;
+      max-width: 130px;
+    }
   }
   

@@ -5,20 +5,23 @@ import './sidenav.css';
 import { RxCross2 } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 
-
-function Sidenav({ isOpen, setIsOpen }) {
+function Sidenav({ isOpen, setIsOpen, functionUse }) {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
     const [activeItem, setActiveItem] = useState('dashboard');
     const sidebarRef = useRef(null);
     const order = useNavigate();
 
-    // Toggle submenu open/close
     const toggleSubmenu = () => {
         setIsSubmenuOpen(prevState => !prevState);
     };
-    const dashboardnavigate = () =>{
-        order('/dashboard')
-    }
+
+    const dashboardnavigate = () => {
+        order('/dashboard');
+    };
+
+    const contactUs = () => {
+        order('/contact');
+    };
 
     const ordernavigate = () => {
         order('/orderpage');
@@ -40,13 +43,11 @@ function Sidenav({ isOpen, setIsOpen }) {
 
     const handleItemClick = (item) => {
         setActiveItem(item);
-        // Store the active item in localStorage
-        localStorage.setItem('activeItem', item);
+        sessionStorage.setItem('activeItem', item); // Local Storage se Session Storage me shift kiya
     };
 
     useEffect(() => {
-        // Check if there is an active item in localStorage
-        const storedActiveItem = localStorage.getItem('activeItem');
+        const storedActiveItem = sessionStorage.getItem('activeItem');
         if (storedActiveItem) {
             setActiveItem(storedActiveItem);
         }
@@ -64,9 +65,8 @@ function Sidenav({ isOpen, setIsOpen }) {
 
     return (
         <div className="sidenav-container" ref={sidebarRef}>
-            <div className="toggle-btn" onClick={toggleSidebar}
-                style={{ cursor: 'pointer' }} >
-                {isOpen === false ? <IoReorderThreeOutline size={25} /> : <RxCross2 size={25} />}
+            <div className="toggle-btn" onClick={toggleSidebar} style={{ cursor: 'pointer' }}>
+                {isOpen ? <RxCross2 size={25} /> : <IoReorderThreeOutline size={25} />}
             </div>
 
             <div className={`sidebar ${isOpen ? 'open' : ''}`}>
@@ -74,72 +74,16 @@ function Sidenav({ isOpen, setIsOpen }) {
                     <>
                         <h2 className="shadow-css-foodway mt-3">FoodWay</h2>
                         <ul>
-                            <li
-                                className={activeItem === 'dashboard' ? 'active' : ''}
-                                onClick={() => {handleItemClick('dashboard'), dashboardnavigate()}}
-                            >
-                               Dashboard
+                            <li className={activeItem === 'dashboard' ? 'active' : ''} onClick={() => { handleItemClick('dashboard'); dashboardnavigate(); }}>
+                                Dashboard
                             </li>
-                            <li
-                                className={activeItem === 'orders' ? 'active' : ''}
-                                onClick={() => { handleItemClick('orders'); ordernavigate(); }}
-                            >
+                            <li className={activeItem === 'orders' ? 'active' : ''} onClick={() => { handleItemClick('orders'); ordernavigate(); }}>
                                 Orders
                             </li>
-                            <li
-                                className={activeItem === 'menus' ? 'active' : ''}
-                                onClick={() => handleItemClick('menus')}
-                            >
+                            <li className={activeItem === 'menus' ? 'active' : ''} onClick={() => handleItemClick('menus')}>
                                 Menus
                             </li>
-                            <li>
-                                <details>
-                                    <summary
-                                        onClick={toggleSubmenu}
-                                        style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-                                        className={activeItem === 'customers' ? 'active' : ''}
-                                    >
-                                        <span onClick={() => handleItemClick('customers')}>Customers</span>
-                                        <span
-                                            style={{
-                                                marginLeft: '10px',
-                                                transform: isSubmenuOpen ? 'rotate(90deg)' : 'rotate(0deg)',
-                                                transition: 'transform 0.3s ease-in-out',
-                                                marginLeft: 'auto'
-                                            }}
-                                        >
-                                            &#x2771;
-                                        </span>
-                                    </summary>
-
-                                    {isSubmenuOpen && (
-                                        <ul>
-                                            <li
-                                                className={activeItem === 'add-new' ? 'active' : ''}
-                                                onClick={() => handleItemClick('add-new')}
-                                            >
-                                                Add new
-                                            </li>
-                                            <li
-                                                className={activeItem === 'members' ? 'active' : ''}
-                                                onClick={() => handleItemClick('members')}
-                                            >
-                                                Members
-                                            </li>
-                                            {/* <li
-                                                className={activeItem === 'general' ? 'active' : ''}
-                                                onClick={() => handleItemClick('general')}
-                                            >
-                                                General Customer
-                                            </li> */}
-                                        </ul>
-                                    )}
-                                </details>
-                            </li>
-                            <li
-                                className={activeItem === 'analytics' ? 'active' : ''}
-                                onClick={() => { handleItemClick('analytics'); analyticnavigate(); }}
-                            >
+                            <li className={activeItem === 'analytics' ? 'active' : ''} onClick={() => { handleItemClick('analytics'); analyticnavigate(); }}>
                                 Analytics
                             </li>
                         </ul>
@@ -165,17 +109,18 @@ function Sidenav({ isOpen, setIsOpen }) {
                                     + Add Menus
                                 </button>
                             </div>
-
                         </div>
+
                         <button className="btn btn-light mt-3 fw-bold w-100"
                             style={{
                                 background: "linear-gradient(to right, #6366F1, #8B5CF6)",
                                 borderRadius: "10px",
                                 transition: "all 0.3s ease",
                                 color: "white",
-                            }}>
+                            }} onClick={contactUs}>
                             Contact Us
                         </button><br />
+
                         <button className="btn btn-light mt-3 fw-bold w-100"
                             style={{
                                 background: "linear-gradient(to right, #6366F1, #8B5CF6)",
@@ -187,11 +132,9 @@ function Sidenav({ isOpen, setIsOpen }) {
                         </button>
                     </>
                 )}
-
             </div>
             <footer />
         </div>
-
     );
 }
 
